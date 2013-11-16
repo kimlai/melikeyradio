@@ -46,8 +46,6 @@ class Track
 
     /**
      * @var string $youtube
-     *
-     * @ORM\Column(name="youtube", type="string", length=255, nullable=TRUE, unique=TRUE)
      */
     private $youtube;
 
