@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # Installing software on virtual machine
-apt-get update
+#apt-get update
 
 apt-get install -y python-software-properties
 
@@ -17,17 +17,19 @@ then
     apt-get update
 fi
 
-apt-get install -y php5-dev php5-cli php5-mysql mysql-server vim git
+apt-get install -y php5-dev php-pear php5-cli php5-mysql mysql-server vim git
 
 # Configuring virtual machine
 
+mkdir -p /etc/php5/mods-available
 cat <<EOT >/etc/php5/mods-available/symfony.ini
 date.timezone = Europe/Paris
 xdebug.max_nesting_level = 250
 short_open_tag = Off
 EOT
 
-php5enmod -s ALL symfony
+cd /etc/php5/conf.d
+ln -sf ../mods-available/symfony.ini
 
 #countmelikeyradio=`sudo -u postgres psql -lqt |grep -c lrqdo`
 #
