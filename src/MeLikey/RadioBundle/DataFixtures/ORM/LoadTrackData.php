@@ -5,6 +5,7 @@ namespace MeLikey\RadioBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\Collections\ArrayCollection;
 use MeLikey\RadioBundle\Entity\Track;
 
 class LoadTrackData extends AbstractFixture implements OrderedFixtureInterface
@@ -19,6 +20,9 @@ class LoadTrackData extends AbstractFixture implements OrderedFixtureInterface
         $track->setTitle("Mentalpeace");
         $track->setSoundcloud("https://soundcloud.com/melodiesinfonie/mentalpeace-for-beat-enoteca");
         $track->setAlbumart("toto");
+        $tags = new ArrayCollection();
+        $tags[] = $this->getReference('tag');
+        $track->setTags($tags);
 
         $manager->persist($track);
         $manager->flush();
@@ -31,6 +35,6 @@ class LoadTrackData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 1;
+        return 2;
     }
 }

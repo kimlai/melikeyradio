@@ -18,15 +18,18 @@ class LoadPlaylistData extends AbstractFixture implements OrderedFixtureInterfac
         $playlist = new Playlist();
         $playlist->setName("Playlist 1");
 
-        $playlistItem = new PlaylistItem();
-        $track = $this->getReference('track');
-        $playlistItem->setTrack($this->getReference('track'));
-        $playlistItem->setPosition(0);
+        for ($i=0; $i<30; $i++) {
+            $playlistItem = new PlaylistItem();
+            $track = $this->getReference('track');
+            $playlistItem->setTrack($this->getReference('track'));
+            $playlistItem->setPosition($i);
 
-        $playlist->addPlaylistItem($playlistItem);
+            $playlist->addPlaylistItem($playlistItem);
+
+            $manager->persist($playlistItem);
+        }
 
         $manager->persist($playlist);
-        $manager->persist($playlistItem);
         $manager->flush();
     }
 
@@ -35,6 +38,6 @@ class LoadPlaylistData extends AbstractFixture implements OrderedFixtureInterfac
      */
     public function getOrder()
     {
-        return 2;
+        return 3;
     }
 }
