@@ -1,0 +1,43 @@
+$header-height: 90px;
+
+$background-color: #222;
+
+$first-color: lighten($background-color, 3%);
+$second-color: #00baff;
+$third-color: white;
+
+@import "compass/utilities";
+@import "compass/css3";
+@import "animation";
+
+@mixin dark-background-element {
+	background: $background-color;
+	color: $third-color;
+	text-shadow: 0 1px 0 #000;
+	a {
+		@include link-colors($third-color);
+	}
+}
+
+@mixin normal-font {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+@include keyframes(content-loader) {
+	0% {
+		@include rotate(0deg);
+	}
+	100% {
+		@include rotate(360deg);
+	}
+}
+
+@include font-face(
+	'Ostrich', 
+	font-files(
+		'ostrich-sans/ostrich-black.woff', 'woff',
+		'ostrich-sans/ostrich-black.svg', 'svg'
+	),
+	'ostrich-sans/ostrich-black.eot'
+);

@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+	{% stylesheets 
+		'bundles/melikeyradio/stylesheets/screen.css'
+		'bundles/melikeyradio/stylesheets/form.css' 
+		'bundles/melikeyradio/stylesheets/connect.css' 
+	filter='cssrewrite' %}
+		<link rel="stylesheet" href="{{ asset_url }}" />
+	{% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>	
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>	
+	{% javascripts '@MeLikeyMusicLoverBundle/Resources/public/js/connect.js' %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}
+
+{% block body %}
+	<article id="connect-form">
+		<nav>
+			<ul>
+				<li><a href="#login">Login</a></li>
+				<li><a href="#register">Signup</a></li>
+			</ul>
+		</nav>
+		<article id="login">
+			{% render url('fos_user_security_login') %}
+		</article>
+		<article id="register">
+			{% render url('fos_user_registration_register') %}
+		</article>
+	</article>
+{% endblock %}

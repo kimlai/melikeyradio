@@ -1,0 +1,9 @@
+me_likey_radio_newsletter_subscription:
+    pattern: /subscribe
+    defaults: { _controller: MeLikeyRadioBundle:Newsletter:subscribe }
+    options:
+        expose: true
+
+me_likey_radio_newsletter_thanks:
+    pattern: /thanks
+    defaults: { _controller: MeLikeyRadioBundle:Newsletter:thanks }

@@ -1,0 +1,17 @@
+parameters:
+#    me_likey_radio.example.class: MeLikey\RadioBundle\Example
+
+services:
+#    me_likey_radio.example:
+#        class: %me_likey_radio.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    melikey_radio.twig.extension:
+        class: MeLikey\RadioBundle\Extension\MeLikeyTwigExtension
+        tags:
+            - { name : twig.extension }
+
+    validator.unique.is_unsubscribed_to_newsletter:
+        class: MeLikey\RadioBundle\Validator\Constraints\isUnsubscribedToNewsletterValidator
+        arguments: [@snowcap_mailjet.client]
+        tags:
+            - { name: validator.constraint_validator, alias: is_unsubscribed_to_newsletter_validator }

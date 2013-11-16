@@ -1,0 +1,7 @@
+MeLikey\RadioBundle\Entity\NewsletterSubscription:
+    properties:
+        email:
+            - NotBlank: ~
+            - Email:
+                checkHost: true
+            - MeLikey\RadioBundle\Validator\Constraints\isUnsubscribedToNewsletter: ~

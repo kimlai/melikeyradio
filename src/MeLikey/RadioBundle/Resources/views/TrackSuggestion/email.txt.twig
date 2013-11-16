@@ -1,0 +1,11 @@
+Just received a track submission ! At {{ "now" | date("Y-m-d H:i") }}.
+
+The Link : {{ suggestion.link }}
+
+{% if suggestion.email %}
+Email :	{{ suggestion.email }}
+{% endif %}
+
+{% if suggestion.extra %} 
+{{ suggestion.extra }}
+{% endif %}

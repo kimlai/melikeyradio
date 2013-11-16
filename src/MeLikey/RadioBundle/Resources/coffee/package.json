@@ -1,0 +1,17 @@
+{
+  "name": "MeLikeyRadio-frontend",
+  "version": "0.1.0",
+  "description": "single page app frontend for MeLikeyRadio using Chaplin-js",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-watch": "~0.4.0",
+    "chai": "~1.6.0",
+    "mocha": "~1.9.0",
+    "sinon": "~1.7.2",
+    "sinon-chai": "~2.4.0",
+    "requirejs": "~2.1.5",
+    "underscore": "~1.4.4",
+    "backbone": "~1.0.0"
+  }
+}

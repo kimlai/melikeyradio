@@ -1,0 +1,11 @@
+me_likey_radio_about:
+    pattern:  /about
+    defaults: { _controller: MeLikeyRadioBundle:Default:about }
+    options:
+        expose: true
+
+me_likey_radio_contact:
+    pattern:  /contact
+    defaults: { _controller: MeLikeyRadioBundle:Default:contact }
+    options:
+        expose: true

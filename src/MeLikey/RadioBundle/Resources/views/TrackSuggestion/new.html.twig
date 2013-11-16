@@ -1,0 +1,20 @@
+{% extends 'MeLikeyRadioBundle:TrackSuggestion:base.html.twig' %}
+
+{% block content %}
+	<p>You think that a track is painfully missing from MeLikeyRadio's playlists ? Send us the link !</p>
+	<table>
+		<tr><th>Rule #1 : </th><td>We will only play official links<sup>*</sup></td></tr>
+		<tr><th>Rule #2 : </th><td>We can only play soundcloud, youtube or vimeo links (for now).</td></tr>
+	</table>
+	<form action="{{ path('me_likey_radio_track_suggestion_new') }}" method="post" {{ form_enctype(form) }}>
+		{{ form_errors(form) }}
+		{{ form_row(form.link) }}
+		<h2>Optional stuff</h2>
+		{{ form_row(form.email) }}
+		{{ form_row(form.extra) }}
+
+		{{ form_rest(form) }}
+		<input class="button" type="submit" value="Send !" />
+	</form>
+	<p><sup>*</sup>i.e. links posted on the artist's official soundcloud (youtube, vimeo) page, or their label's.</p>
+{% endblock %}

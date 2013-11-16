@@ -1,0 +1,48 @@
+me_likey_radio_newsletter:
+    resource: "@MeLikeyRadioBundle/Resources/config/routing/newsletter.yml"
+    prefix: /newsletter
+
+me_likey_radio_tracksuggestion:
+    resource: "@MeLikeyRadioBundle/Resources/config/routing/tracksuggestion.yml"
+    prefix: /tracksuggestion
+
+me_likey_radio_static:
+    resource: "@MeLikeyRadioBundle/Resources/config/routing/static.yml"
+
+me_likey_radio_homepage:
+    pattern:  /
+    defaults: { _controller: MeLikeyRadioBundle:Default:index }
+    options:
+        expose: true
+
+me_likey_radio_tracks:
+    pattern: /tracks
+    defaults: { _controller: MeLikeyRadioBundle:Default:tracks }
+    requirements:
+        offset: \d+
+    options:
+        expose: true
+
+me_likey_radio_single_track:
+    pattern: /tracks/{id}
+    defaults: { _controller: MeLikeyRadioBundle:Default:singleTrack }
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+me_likey_radio_playlist_fragment:
+    pattern: /playlistfragment/{playlistID}/{position}
+    defaults: { _controller: MeLikeyRadioBundle:Default:playlistFragment, playlistID:1, position: 0 }
+    options:
+        expose: true
+
+me_likey_radio_tags:
+    pattern: /tags
+    defaults: { _controller: MeLikeyRadioBundle:Default:tags }
+    options:
+        expose: true
+
+me_likey_generate_templates:
+    pattern: /generatetemplates
+    defaults: { _controller: MeLikeyRadioBundle:Default:generateTemplates }

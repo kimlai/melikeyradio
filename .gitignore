@@ -1,0 +1,48 @@
+#------
+# IDE
+#-----
+
+*.swp
+*.session
+*.tags
+
+#----------
+# Symfony
+#----------
+
+/web/bundles/
+/app/bootstrap.php.cache
+/app/cache/*
+/app/logs/*
+/build/
+/vendor/
+/bin/
+/composer.phar
+composer.lock
+/app/config/parameters.ini
+/app/config/parameters.yml
+/web/js/
+/web/css/
+/web/uploads/
+
+#----------------
+# nodejs, bower
+#---------------
+
+node_modules
+npm-debug.log
+
+#-----------------------------------------
+#compiled coffescript, templates and sass
+#-----------------------------------------
+
+/src/MeLikey/RadioBundle/Resources/coffee/test/js/
+/src/MeLikey/RadioBundle/Resources/public/js/
+/src/MeLikey/RadioBundle/Resources/public/stylesheets/
+*.sass-cache/
+
+#----------
+# Vagrant
+#----------
+
+.vagrant

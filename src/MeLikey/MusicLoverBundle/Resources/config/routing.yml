@@ -1,0 +1,9 @@
+me_likey_music_lover_connect:
+    pattern:  /connect
+    defaults: { _controller: MeLikeyMusicLoverBundle:Default:connect }
+    options:
+        expose: true
+
+me_likey_music_lover_login_success:
+    pattern:  /loginsuccess
+    defaults: { _controller: MeLikeyMusicLoverBundle:Default:loginSuccess }

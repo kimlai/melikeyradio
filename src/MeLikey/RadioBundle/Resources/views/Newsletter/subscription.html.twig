@@ -1,0 +1,14 @@
+{% extends 'MeLikeyRadioBundle:Newsletter:base.html.twig' %}
+
+{% block content %}
+	<form action="{{ path('me_likey_radio_newsletter_subscription') }}" method="post" {{ form_enctype(form) }}>
+		<div class="errors">
+			{{ form_errors(form) }}
+			{{ form_errors(form.email) }}
+		</div>
+		{{ form_label(form.email) }}
+		{{ form_widget(form.email) }}
+		{{ form_rest(form) }}
+		<input class="button" type="submit" value="Subscribe" />
+	</form>
+{% endblock %}

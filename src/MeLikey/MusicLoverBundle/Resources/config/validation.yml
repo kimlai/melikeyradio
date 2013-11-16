@@ -1,0 +1,6 @@
+MeLikey\MusicLoverBundle\Entity\MusicLover:
+    properties:
+        email:
+            - Email:
+                groups: [Registration]
+                checkHost: true

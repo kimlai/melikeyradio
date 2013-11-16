@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Me Likey Radio Frontend Test Runner</title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script src="../node_modules/sinon-chai/lib/sinon-chai.js"></script>
+    <script src="../node_modules/sinon/lib/sinon.js"></script>
+    <script src="../node_modules/sinon/lib/sinon/spy.js"></script>
+    <script src="../node_modules/requirejs/require.js"></script>
+    <script>
+	  //TODO : move this in a requirejs-module. This code loads the IFrame Player API code asynchronously.
+	  var tag = document.createElement('script');
+	  tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+	  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      // Fix timers stubbing in IE8-9.
+      var oldTimers = {setInterval: setInterval, clearInterval: clearInterval};
+      eval('function setInterval() {}; function clearInterval() {}');
+      var oldIE = (/MSIE [89]/.test(navigator.userAgent));
+      var timers = oldIE ? sinon.clock : oldTimers;
+      window.setInterval = timers.setInterval;
+      window.clearInterval = timers.clearInterval;
+
+      requirejs.config({
+        baseUrl: 'js',
+        paths: {
+          jquery: 'jquery-1.9.1',
+          underscore: '../../node_modules/underscore/underscore',
+          backbone: '../../node_modules/backbone/backbone',
+		  soundcloudSDK: 'http://connect.soundcloud.com/sdk'
+        },
+        shim: {
+          backbone: {
+            deps: ['underscore', 'jquery'],
+            exports: 'Backbone'
+          },
+          underscore: {
+            exports: '_'
+          },
+		  soundcloudSDK: {
+			exports: 'SC',
+			init: function() {
+			  SC.initialize({client_id: 'ad3f38b80f23db05a89a7ec3ef2ed696'});
+			}
+		  }
+        },
+        // For easier development, disable browser caching
+        urlArgs: 'bust=' + (new Date()).getTime()
+      });
+      mocha.setup({ui: 'bdd', ignoreLeaks: true, timeout: 10000});
+      // Wonderful hack to send a message to grunt from inside a mocha test.
+      var sendMessage = function() {
+        var args = [].slice.call(arguments);
+        // Remove if when generating test coverage.
+        if (window.mochaPhantomJS) {
+           alert(JSON.stringify(args));
+        }
+      };
+      mocha.suite.afterAll(function() {
+        sendMessage('mocha.coverage', window.__coverage__);
+      });
+      //window.expect = SinonExpect.enhance(expect, sinon, 'was');
+	  window.sinon = sinon;
+      window.assert = chai.assert;
+      window.onload = function() {
+        var specs = [
+			'player-wrapper',
+			'soundcloud-wrapper',
+			'youtube-wrapper',
+			'player',
+			'tracks'
+        ];
+        var loaded = [];
+        for (var i = 0, l = specs.length; i < l; i++) {
+          loaded.push('specs/' + specs[i] + '-spec');
+        }
+        require(loaded, function() {
+          if (window.mochaPhantomJS) {
+            mochaPhantomJS.run();
+          } else {
+            mocha.run();
+          }
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <div id="testbed"></div>
+  </body>
+</html>

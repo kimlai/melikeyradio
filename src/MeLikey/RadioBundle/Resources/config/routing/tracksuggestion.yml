@@ -1,0 +1,9 @@
+me_likey_radio_track_suggestion_new:
+    pattern: /new
+    defaults: { _controller: MeLikeyRadioBundle:TrackSuggestion:new }
+    options:
+        expose: true
+
+me_likey_radio_track_suggestion_thanks:
+    pattern: /thanks
+    defaults: { _controller: MeLikeyRadioBundle:TrackSuggestion:thanks }
