@@ -1,0 +1,18 @@
+MeLikey\RadioBundle\Entity\PlaylistItem:
+    type: entity
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        position:
+            type: integer
+            nullable: false
+    manyToOne:
+        playlist:
+            targetEntity: Playlist
+            inversedBy: playlistItems
+            nullable: false
+        track:
+            targetEntity: Track
+            nullable: false

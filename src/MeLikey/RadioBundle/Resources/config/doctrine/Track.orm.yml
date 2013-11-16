@@ -1,0 +1,33 @@
+MeLikey\RadioBundle\Entity\Track:
+    type: entity
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        created:
+            type: datetime 
+        albumart:
+            type: string
+        artist:
+            type: string
+            nullable: false
+        title:
+            type: string
+            nullable: false
+        musiclabel:
+            type: string
+        website:
+            type: string
+        youtube:
+            type: string
+            unique: true
+        soundcloud:
+            type: string
+            unique: true
+        vimeo:
+            type: string
+            unique: true
+    manyToMany:
+        tags:
+            targetEntity: Tag 

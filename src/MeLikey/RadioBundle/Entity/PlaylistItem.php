@@ -2,74 +2,39 @@
 
 namespace MeLikey\RadioBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
- * MeLikey\RadioBundle\Entity\PlaylistItem
- *
- * @ORM\Table()
- * @ORM\Entity(repositoryClass="MeLikey\RadioBundle\Entity\PlaylistItemRepository")
+ * PlaylistItem
  */
 class PlaylistItem
 {
     /**
      * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var integer $position
-     *
-     * @ORM\Column(name="position", type="integer")
      */
     private $position;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\MeLikey\RadioBundle\Entity\Playlist", inversedBy="playlisItems")
-     * @ORM\JoinColumn(nullable=false)
+     * @var Playlist $playlist
      */
     private $playlist;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\MeLikey\RadioBundle\Entity\Track")
-     * @ORM\JoinColumn(nullable=false)
+     * @var Track $track
      */
     private $track;
 
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @var date $created
-     *
-     * @ORM\Column(name="created", type="datetime")
-     */
-    private $created;
-
-    public function __construct()
-    {
-    $this->created = new \DateTime();
-    }
-
-    /**
-     * Get created
-     *
-     * @return date
-     */
-    public function getCreated()
-    {
-        return $this->created;
     }
 
     /**
@@ -85,7 +50,7 @@ class PlaylistItem
     /**
      * Get position
      *
-     * @return integer
+     * @return integer 
      */
     public function getPosition()
     {
@@ -95,9 +60,9 @@ class PlaylistItem
     /**
      * Set playlist
      *
-     * @param MeLikey\RadioBundle\Entity\Playlist $playlist
+     * @param Playlist $playlist
      */
-    public function setPlaylist(\MeLikey\RadioBundle\Entity\Playlist $playlist)
+    public function setPlaylist(Playlist $playlist)
     {
         $this->playlist = $playlist;
     }
@@ -105,7 +70,7 @@ class PlaylistItem
     /**
      * Get playlist
      *
-     * @return MeLikey\RadioBundle\Entity\Playlist
+     * @return Playlist 
      */
     public function getPlaylist()
     {
@@ -115,9 +80,9 @@ class PlaylistItem
     /**
      * Set track
      *
-     * @param MeLikey\RadioBundle\Entity\Track $track
+     * @param Track $track
      */
-    public function setTrack(\MeLikey\RadioBundle\Entity\Track $track)
+    public function setTrack(Track $track)
     {
         $this->track = $track;
     }
@@ -125,20 +90,10 @@ class PlaylistItem
     /**
      * Get track
      *
-     * @return MeLikey\RadioBundle\Entity\Track
+     * @return Track 
      */
     public function getTrack()
     {
         return $this->track;
-    }
-
-    /**
-     * Set created
-     *
-     * @param datetime $created
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
     }
 }

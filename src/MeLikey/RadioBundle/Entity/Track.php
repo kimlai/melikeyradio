@@ -2,69 +2,43 @@
 
 namespace MeLikey\RadioBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\Collection;
-use JMS\Serializer\Annotation as Serializer;
-
 /**
- * MeLikey\RadioBundle\Entity\Track
- *
- * @ORM\Table()
- * @ORM\Entity
- * @ORM\Entity(repositoryClass="MeLikey\RadioBundle\Entity\TrackRepository")
- *
- * @Serializer\ExclusionPolicy("none")
+ * Track
  */
 class Track
 {
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var $id
      */
     private $id;
 
     /**
      * @var date $created
-     *
-     * @ORM\Column(name="created", type="datetime")
      */
     private $created;
 
     /**
      * @var string $albumart
-     *
-     * @ORM\Column(name="albumart", type="string", length=255, nullable=TRUE)
      */
     private $albumart;
 
     /**
      * @var string $artist
-     *
-     * @ORM\Column(name="artist", type="string", length=255, nullable=FALSE)
      */
     private $artist;
 
     /**
      * @var string $title
-     *
-     * @ORM\Column(name="title", type="string", length=255, nullable=FALSE)
      */
     private $title;
-
+	
     /**
      * @var string $musiclabel
-     *
-     * @ORM\Column(name="musiclabel", type="string", length=255, nullable=TRUE)
      */
     private $musiclabel;
 
     /**
      * @var string $website
-     *
-     * @ORM\Column(name="website", type="string", length=255, nullable=TRUE)
      */
     private $website;
 
@@ -77,25 +51,20 @@ class Track
 
     /**
      * @var string $soundcloud
-     *
-     * @ORM\Column(name="soundcloud", type="string", length=255, nullable=TRUE, unique=TRUE)
      */
     private $soundcloud;
 
     /**
      * @var string $vimeo
-     *
-     * @ORM\Column(name="vimeo", type="string", length=255, nullable=TRUE, unique=TRUE)
      */
     private $vimeo;
 
     /**
-     * @ORM\ManyToMany(targetEntity="MeLikey\RadioBundle\Entity\Tag")
-     * @Serializer\Type("ArrayCollection")
+     * @var ArrayCollection $tags
      */
     protected $tags;
 
-    public function __construct()
+    public function __construct() 
     {
         $this->created = new \DateTime();
         $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
@@ -104,7 +73,7 @@ class Track
     /**
      * Get created
      *
-     * @return date
+     * @return DateTime
      */
     public function getCreated()
     {
@@ -112,8 +81,8 @@ class Track
     }
 
     /**
-     * Set albumart.
-     * TODO Cleans any existing thumbnails.
+	 * Set albumart.
+	 * TODO Cleans any existing thumbnails.
      *
      * @param string $albumart
      */
@@ -125,7 +94,7 @@ class Track
     /**
      * Get albumart
      *
-     * @return string
+     * @return string 
      */
     public function getAlbumart()
     {
@@ -133,6 +102,7 @@ class Track
     }
 
     private $artworkUrl;
+
     /**
      * Set artworkUrl
      *
@@ -156,7 +126,7 @@ class Track
     /**
      * Get musiclabel
      *
-     * @return string
+     * @return string 
      */
     public function getMusiclabel()
     {
@@ -176,7 +146,7 @@ class Track
     /**
      * Get website
      *
-     * @return string
+     * @return string 
      */
     public function getWebsite()
     {
@@ -196,7 +166,7 @@ class Track
     /**
      * Get artist
      *
-     * @return string
+     * @return string 
      */
     public function getArtist()
     {
@@ -216,7 +186,7 @@ class Track
     /**
      * Get title
      *
-     * @return string
+     * @return string 
      */
     public function getTitle()
     {
@@ -248,7 +218,7 @@ class Track
         // the absolute directory path where uploaded documents should be saved
          return __DIR__.'/../../../../web/'.$this->getAlbumartUploadDir();
      }
-
+                                    
      protected function getAlbumartUploadDir()
      {
          // get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
@@ -268,7 +238,7 @@ class Track
     /**
      * Get youtube
      *
-     * @return string
+     * @return string 
      */
     public function getYoutube()
     {
@@ -288,7 +258,7 @@ class Track
     /**
      * Get soundcloud
      *
-     * @return string
+     * @return string 
      */
     public function getSoundcloud()
     {
@@ -308,7 +278,7 @@ class Track
     /**
      * Get vimeo
      *
-     * @return string
+     * @return string 
      */
     public function getVimeo()
     {

@@ -3,8 +3,7 @@
 namespace MeLikey\RadioBundle\Entity;
 
 /**
- * MeLikey\RadioBundle\Entity\NewsletterSubscription
- *
+ * NewsletterSubscription
  */
 class NewsletterSubscription
 {

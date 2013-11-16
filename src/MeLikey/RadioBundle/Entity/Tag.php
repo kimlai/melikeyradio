@@ -2,30 +2,20 @@
 
 namespace MeLikey\RadioBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
- * MeLikey\RadioBundle\Entity\Tag
- *
- * @ORM\Table()
- * @ORM\Entity
+ * Tag
  */
 class Tag
 {
     /**
      * @var integer $id
-     *
-     * @ORM\Column(name="id", type="string", length=255, nullable=FALSE)
-     * @ORM\Id
      */
-    protected $id;
+    private $id;
 
     /**
      * @var string $name
-     *
-     * @ORM\Column(name="name", type="string", length=255, nullable=FALSE)
      */
-    protected $name;
+    private $name;
 
     public function getId()
     {
@@ -49,6 +39,6 @@ class Tag
 
     public function __toString()
     {
-        return $this->id;
+        return $this->name;
     }
 }
