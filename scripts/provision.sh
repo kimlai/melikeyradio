@@ -29,18 +29,18 @@ EOT
 
 php5enmod -s ALL symfony
 
-countmelikeyradio=`sudo -u postgres psql -lqt |grep -c lrqdo`
-
-[ $countlrqdo -eq 0 ] && sudo -u postgres psql <<EOT
-create user lrqdo with superuser createdb encrypted password 'lrqdo';
-create database lrqdo owner lrqdo;
-EOT
+#countmelikeyradio=`sudo -u postgres psql -lqt |grep -c lrqdo`
+#
+#[ $countlrqdo -eq 0 ] && sudo -u postgres psql <<EOT
+#create user lrqdo with superuser createdb encrypted password 'lrqdo';
+#create database lrqdo owner lrqdo;
+#EOT
 
 # enable git hooks
-chmod +x /vagrant/scripts/git-hooks/pre-push
-chmod +x /vagrant/scripts/git-hooks/pre-commit
-cd /vagrant/.git/hooks
-ln -sf ../../scripts/git-hooks/pre-push
-ln -sf ../../scripts/git-hooks/pre-commit
+#chmod +x /vagrant/scripts/git-hooks/pre-push
+#chmod +x /vagrant/scripts/git-hooks/pre-commit
+#cd /vagrant/.git/hooks
+#ln -sf ../../scripts/git-hooks/pre-push
+#ln -sf ../../scripts/git-hooks/pre-commit
 
 exit 0
