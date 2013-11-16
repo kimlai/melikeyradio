@@ -24,6 +24,6 @@ Once you're logged in, you'll need to install your vendors :
 That's it, you've set up your dev environment !
 To see the website in action, you can use the webserver built in PHP :
 
-    ./app/console server:run localhost:8080 -vvv
+    ./app/console server:run 0.0.0.0:8080 -vvv
 
-You can now access the website at http://localhost:8080
+You can now access the website at http://10.9.8.7:8080
