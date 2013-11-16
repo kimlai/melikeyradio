@@ -4,6 +4,8 @@ namespace MeLikey\RadioBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\HttpFoundation\Response;
 
 use MeLikey\RadioBundle\Entity\Track;
@@ -12,9 +14,12 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('MeLikeyRadioBundle:Default:index.html.twig', array(
-            'playlistID' => 1
-        ));
+        return $this->render(
+            'MeLikeyRadioBundle:Default:index.html.twig',
+            array(
+                'playlistID' => 1,
+            )
+        );
     }
 
     public function singleTrackAction($id)
@@ -41,9 +46,6 @@ class DefaultController extends Controller
 
         $response = new Response($json);
         $response->headers->set('Content-Type', 'application/json');
-
-        return $response;
-    }
 
     public function tracksAction()
     {

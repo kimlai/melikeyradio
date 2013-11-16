@@ -2,7 +2,7 @@
 
 namespace MeLikey\RadioBundle\Entity;
 
-use Docrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Playlist
@@ -64,7 +64,7 @@ class Playlist
      *
      * @param PlaylistItem $playlistItems
      */
-     public function setPlaylistItems(Collection $playlistItems)
+     public function setPlaylistItems(ArrayCollection $playlistItems)
      {
         foreach ($playlistItems as $pi) {
             $pi->setPlaylist($this);
@@ -86,7 +86,7 @@ class Playlist
     /**
      * Get playlistItems
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return ArrayCollection 
      */
     public function getPlaylistItems()
     {

@@ -2,6 +2,8 @@
 
 namespace MeLikey\RadioBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Track
  */
@@ -295,7 +297,7 @@ class Track
         return $this->tags;
     }
 
-    public function setTags(Collection $tags)
+    public function setTags(ArrayCollection $tags)
     {
         $this->tags = $tags;
     }

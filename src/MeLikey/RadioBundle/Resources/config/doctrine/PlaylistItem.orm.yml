@@ -1,5 +1,6 @@
 MeLikey\RadioBundle\Entity\PlaylistItem:
     type: entity
+    repositoryClass: PlaylistItemRepository
     id:
         id:
             type: integer
@@ -7,12 +8,11 @@ MeLikey\RadioBundle\Entity\PlaylistItem:
     fields:
         position:
             type: integer
-            nullable: false
     manyToOne:
         playlist:
             targetEntity: Playlist
             inversedBy: playlistItems
-            nullable: false
         track:
             targetEntity: Track
-            nullable: false
+            joinColumn:
+                nullable: false

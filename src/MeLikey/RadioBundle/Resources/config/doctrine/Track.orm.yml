@@ -1,5 +1,6 @@
 MeLikey\RadioBundle\Entity\Track:
     type: entity
+    repositoryClass: TrackRepository
     id:
         id:
             type: integer
@@ -9,25 +10,29 @@ MeLikey\RadioBundle\Entity\Track:
             type: datetime 
         albumart:
             type: string
+            nullable: true
         artist:
             type: string
-            nullable: false
         title:
             type: string
-            nullable: false
         musiclabel:
             type: string
+            nullable: true
         website:
             type: string
+            nullable: true
         youtube:
             type: string
             unique: true
+            nullable: true
         soundcloud:
             type: string
             unique: true
+            nullable: true
         vimeo:
             type: string
             unique: true
+            nullable: true
     manyToMany:
         tags:
             targetEntity: Tag 
