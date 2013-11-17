@@ -69,11 +69,6 @@ swiftmailer:
     encryption: %mailer_encryption%
     spool:     { type: memory }
 
-services:
-    twig_js.compile_request_handler:
-        class: MeLikey\RadioBundle\TwigJs\CompileRequestHandler
-        arguments: [@twig, @twig_js.compiler]
-
 snowcap_mailjet:
     api_key: %mailjet_api_key%
     secret_key: %mailjet_secret_key%
