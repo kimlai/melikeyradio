@@ -10,7 +10,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use MeLikey\RadioBundle\Entity\Tag;
 
-class LoadTagData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
+class TagFixture extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
     /**
      * @var ContainerInterface $container

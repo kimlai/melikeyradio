@@ -11,7 +11,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use MeLikey\RadioBundle\Entity\Playlist;
 use MeLikey\RadioBundle\Entity\PlaylistItem;
 
-class LoadPlaylistData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
+class PlaylistFixture extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
     /**
      * @var ContainerInterface $container

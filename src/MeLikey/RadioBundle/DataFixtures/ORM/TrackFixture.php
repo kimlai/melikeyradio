@@ -11,7 +11,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Collections\ArrayCollection;
 use MeLikey\RadioBundle\Entity\Track;
 
-class LoadTrackData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
+class TrackFixture extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
     /**
      * @var ContainerInterface $container
