@@ -18,4 +18,4 @@ parameters:
     mailjet_secret_key: your_mailjet_secret_key
 
     locale:            en
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret:            ThisTokenIsNotSecretEitherWhatsThePoint
