@@ -2,96 +2,65 @@
 
 namespace MeLikey\RadioBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\Collection;
-use JMS\Serializer\Annotation as Serializer;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * MeLikey\RadioBundle\Entity\Track
- *
- * @ORM\Table()
- * @ORM\Entity
- * @ORM\Entity(repositoryClass="MeLikey\RadioBundle\Entity\TrackRepository")
- *
- * @Serializer\ExclusionPolicy("none")
+ * Track
  */
 class Track
 {
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var $id
      */
     private $id;
 
     /**
      * @var date $created
-     *
-     * @ORM\Column(name="created", type="datetime")
      */
     private $created;
 
     /**
      * @var string $albumart
-     *
-     * @ORM\Column(name="albumart", type="string", length=255, nullable=TRUE)
      */
     private $albumart;
 
     /**
      * @var string $artist
-     *
-     * @ORM\Column(name="artist", type="string", length=255, nullable=FALSE)
      */
     private $artist;
 
     /**
      * @var string $title
-     *
-     * @ORM\Column(name="title", type="string", length=255, nullable=FALSE)
      */
     private $title;
 
     /**
      * @var string $musiclabel
-     *
-     * @ORM\Column(name="musiclabel", type="string", length=255, nullable=TRUE)
      */
     private $musiclabel;
 
     /**
      * @var string $website
-     *
-     * @ORM\Column(name="website", type="string", length=255, nullable=TRUE)
      */
     private $website;
 
     /**
      * @var string $youtube
-     *
-     * @ORM\Column(name="youtube", type="string", length=255, nullable=TRUE, unique=TRUE)
      */
     private $youtube;
 
     /**
      * @var string $soundcloud
-     *
-     * @ORM\Column(name="soundcloud", type="string", length=255, nullable=TRUE, unique=TRUE)
      */
     private $soundcloud;
 
     /**
      * @var string $vimeo
-     *
-     * @ORM\Column(name="vimeo", type="string", length=255, nullable=TRUE, unique=TRUE)
      */
     private $vimeo;
 
     /**
-     * @ORM\ManyToMany(targetEntity="MeLikey\RadioBundle\Entity\Tag")
-     * @Serializer\Type("ArrayCollection")
+     * @var ArrayCollection $tags
      */
     protected $tags;
 
@@ -104,7 +73,7 @@ class Track
     /**
      * Get created
      *
-     * @return date
+     * @return DateTime
      */
     public function getCreated()
     {
@@ -133,6 +102,7 @@ class Track
     }
 
     private $artworkUrl;
+
     /**
      * Set artworkUrl
      *
@@ -325,7 +295,7 @@ class Track
         return $this->tags;
     }
 
-    public function setTags(Collection $tags)
+    public function setTags(ArrayCollection $tags)
     {
         $this->tags = $tags;
     }

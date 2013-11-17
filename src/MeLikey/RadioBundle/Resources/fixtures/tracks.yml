@@ -1,0 +1,18 @@
+-
+    artist: toto
+    title: tata
+    website: http://toto.com
+    musiclabel: http://tata.com
+    albumart: 12345
+    soundcloud: https://soundcloud.com/groove-cereal/take-time-ft-ashly-burch
+    tags: [ electro, hip_hop ]
+    reference: track_0
+-
+    artist: tutu
+    title: titi
+    website: http://tutu.com
+    musiclabel: http://titi.com
+    albumart: 54321
+    soundcloud: https://soundcloud.com/antirecords/broken-twin-sun-has-gone
+    tags: [ electro, folk ]
+    reference: track_1

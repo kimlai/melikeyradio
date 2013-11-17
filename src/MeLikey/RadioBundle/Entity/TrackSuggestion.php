@@ -4,11 +4,11 @@ namespace MeLikey\RadioBundle\Entity;
 
 class TrackSuggestion
 {
-    protected $link;
+    private $link;
 
-    protected $email;
+    private $email;
 
-    protected $extra;
+    private $extra;
 
     public function getLink()
     {

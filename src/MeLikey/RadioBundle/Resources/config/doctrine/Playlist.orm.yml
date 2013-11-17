@@ -1,0 +1,16 @@
+MeLikey\RadioBundle\Entity\Playlist:
+    type: entity
+    repositoryClass: PlaylistRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+    oneToMany:
+        playlistItems:
+            targetEntity: PlaylistItem
+            mappedBy: playlist
+            orderBy:
+                position: DESC

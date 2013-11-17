@@ -1,0 +1,11 @@
+-
+    name: Playlist One
+    tracks:
+        - track_0
+        - track_1
+
+-
+    name: Playlist Two
+    tracks:
+        - track_0
+        - track_1

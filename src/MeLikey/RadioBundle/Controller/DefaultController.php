@@ -12,9 +12,12 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('MeLikeyRadioBundle:Default:index.html.twig', array(
-            'playlistID' => 1
-        ));
+        return $this->render(
+            'MeLikeyRadioBundle:Default:index.html.twig',
+            array(
+                'playlistID' => 1,
+            )
+        );
     }
 
     public function singleTrackAction($id)
@@ -22,7 +25,7 @@ class DefaultController extends Controller
         $request = $this->getRequest();
         if (!$request->isXmlHttpRequest()) {
             return $this->render('MeLikeyRadioBundle:Default:index.html.twig', array(
-                'playlistID' => 1
+                    'playlistID' => 1
             ));
         }
         $track = $this->getDoctrine()->getRepository('MeLikeyRadioBundle:Track')->find($id);
@@ -60,7 +63,7 @@ class DefaultController extends Controller
             //TODO Hack to determine the artwork url. Problem is, with Twig-js we can't determine asset urls...
             $artwork = $track->getAlbumartWebPath();
             if ($artwork) {
-                $track->setArtworkUrl($this->get('templating.helper.assets')->getUrl($track->getAlbumartWebPath()));
+                    $track->setArtworkUrl($this->get('templating.helper.assets')->getUrl($track->getAlbumartWebPath()));
             } else {
                 $track->setArtworkUrl($this->get('templating.helper.assets')->getUrl('bundles/melikeyradio/images/default_artwork'));
             }
@@ -90,7 +93,7 @@ class DefaultController extends Controller
             ->findPlaylistFragment($playlistID, $position);
 
         if (!is_object($playlist)) {
-            throw $this->createNotFoundException('The playlist could not be found.');
+                throw $this->createNotFoundException('The playlist could not be found.');
         }
         $pis = $playlist->getPlaylistItems();
         $pLength = count($pis);
@@ -123,8 +126,8 @@ class DefaultController extends Controller
     public function tagsAction()
     {
         $tags = $this->getDoctrine()
-            ->getRepository('MeLikeyRadioBundle:Tag')
-            ->findAll();
+                ->getRepository('MeLikeyRadioBundle:Tag')
+                ->findAll();
 
         $serializer = $this->get('jms_serializer');
         $json = $serializer->serialize($tags, 'json');
@@ -141,6 +144,6 @@ class DefaultController extends Controller
      */
     public function generateTemplatesAction()
     {
-        return $this->render('MeLikeyRadioBundle:Default:js-templates.html.twig');
+    return $this->render('MeLikeyRadioBundle:Default:js-templates.html.twig');
     }
 }

@@ -2,42 +2,31 @@
 
 namespace MeLikey\RadioBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * MeLikey\RadioBundle\Entity\Playlist
- *
- * @ORM\Table()
- * @ORM\Entity(repositoryClass="MeLikey\RadioBundle\Entity\PlaylistRepository")
+ * Playlist
  */
 class Playlist
 {
     /**
      * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string $name
-     *
-     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="\MeLikey\RadioBundle\Entity\PlaylistItem", mappedBy="playlist", cascade={"persist"})
-     * @ORM\OrderBy({"position" = "DESC"})
+     * @var ArrayCollection $playlistItems
      */
     private $playlistItems;
 
     public function __construct()
     {
-        $this->playlistItems = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->playlistItems = new ArrayCollection();
     }
 
     /**
@@ -73,11 +62,11 @@ class Playlist
     /**
      * Set playlistItems
      *
-     * @param MeLikey\RadioBundle\Entity\PlaylistItem $playlistItems
+     * @param PlaylistItem $playlistItems
      */
-     public function setPlaylistItems(Collection $playlistItems)
+     public function setPlaylistItems(ArrayCollection $playlistItems)
      {
-         foreach ($playlistItems as $pi) {
+        foreach ($playlistItems as $pi) {
             $pi->setPlaylist($this);
         }
         $this->playlistItems = $playlistItems;
@@ -86,9 +75,9 @@ class Playlist
     /**
      * Add playlistItems
      *
-     * @param MeLikey\RadioBundle\Entity\PlaylistItem $playlistItems
+     * @param PlaylistItem $playlistItems
      */
-    public function addPlaylistItem(\MeLikey\RadioBundle\Entity\PlaylistItem $playlistItem)
+    public function addPlaylistItem(PlaylistItem $playlistItem)
     {
         $playlistItem->setPlaylist($this);
         $this->playlistItems[] = $playlistItem;
@@ -97,7 +86,7 @@ class Playlist
     /**
      * Get playlistItems
      *
-     * @return Doctrine\Common\Collections\Collection
+     * @return ArrayCollection
      */
     public function getPlaylistItems()
     {
