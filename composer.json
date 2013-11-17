@@ -1,5 +1,5 @@
 {
-    "name": "Me Likey Radio",
+    "name": "me likey radio",
     "description": "A blog/webradio engine",
     "autoload": {
         "psr-0": {
