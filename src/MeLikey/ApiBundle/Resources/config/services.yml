@@ -1,0 +1,7 @@
+parameters:
+#    me_likey_api.example.class: MeLikey\ApiBundle\Example
+
+services:
+#    me_likey_api.example:
+#        class: %me_likey_api.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

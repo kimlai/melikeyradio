@@ -1,0 +1,11 @@
+tracks:
+    type: rest
+    resource: MeLikey\ApiBundle\Controller\TrackController
+
+playlists:
+    type: rest
+    resource: MeLikey\ApiBundle\Controller\PlaylistController
+
+tags:
+    type: rest
+    resource: MeLikey\ApiBundle\Controller\TagController
