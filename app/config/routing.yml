@@ -1,3 +1,7 @@
+me_likey_api:
+    resource: "@MeLikeyApiBundle/Resources/config/routing.yml"
+    prefix:   /
+
 me_likey_radio:
     resource: "@MeLikeyRadioBundle/Resources/config/routing.yml"
     prefix:   /

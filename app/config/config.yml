@@ -24,6 +24,7 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
 
 # Assetic Configuration
 assetic:
@@ -69,6 +70,9 @@ swiftmailer:
     encryption: %mailer_encryption%
     spool:     { type: memory }
 
+sensio_framework_extra:
+    view: { annotations: false }
+
 snowcap_mailjet:
     api_key: %mailjet_api_key%
     secret_key: %mailjet_secret_key%
@@ -84,3 +88,13 @@ fos_user:
     from_email:
         address: contact@melikeyradio.com
         sender_name: Me Likey Radio
+
+fos_rest:
+    routing_loader:
+        default_format: json
+    view:
+        view_response_listener: force
+    exception:
+        codes:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
+            'Symfony\Component\HttpKernel\Exception\NotFoundHttpException': 404

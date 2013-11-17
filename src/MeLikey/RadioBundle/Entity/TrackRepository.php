@@ -10,22 +10,21 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
  */
 class TrackRepository extends EntityRepository
 {
-    public function index($offset, $tags = NULL)
+    public function findByTags($tags)
     {
         $qb = $this->createQueryBuilder('t');
 
         $qb->join('t.tags', 'tags')
             ->addSelect('tags')
-            ->orderBy('t.created', 'DESC')
-            ->setFirstResult($offset)
-            ->setMaxResults(10);
+            ->orderBy('t.created', 'DESC');
 
         if ($tags) {
             $qb
-                ->join('t.tags', 'tag', 'WITH', $qb->expr()->in('tag.id', ':tags'))
+                ->join('t.tags', 'tag', 'WITH', $qb->expr()->in('tag.name', ':tags'))
                 ->setParameter('tags', $tags);
         }
 
-        return new Paginator($qb->getQuery(), $fetchJoinCollection = true);
+        return $qb->getQuery()->getResult();
+
     }
 }
