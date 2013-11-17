@@ -52,7 +52,7 @@ define [
     fbShare: ->
       obj =
         method: 'feed',
-        link: Routing.generate 'me_likey_radio_single_track', {id: @model.id}, true
+        link: Routing.generate 'melikey_api_get_track', {id: @model.id}, true
       FB.ui obj
 
     twitterShare: ->

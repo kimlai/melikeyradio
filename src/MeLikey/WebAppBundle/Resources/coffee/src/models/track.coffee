@@ -19,7 +19,7 @@ define [
 
     autoplay: false
     player: null
-    urlRoot: Routing.generate('me_likey_radio_tracks')
+    urlRoot: Routing.generate('melikey_api_get_tracks')
 
     constructor: (attributes, options) ->
       id = attributes.id
