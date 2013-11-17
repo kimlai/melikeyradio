@@ -9,10 +9,10 @@ use Symfony\Component\Validator\Constraint;
  */
 class isUnsubscribedToNewsletter extends Constraint
 {
-	public $message = 'Looks like this email is already subscribed to our newsletter.';
+    public $message = 'Looks like this email is already subscribed to our newsletter.';
 
-	public function validatedBy()
-	{
-		return 'is_unsubscribed_to_newsletter_validator';
-	}
+    public function validatedBy()
+    {
+        return 'is_unsubscribed_to_newsletter_validator';
+    }
 }

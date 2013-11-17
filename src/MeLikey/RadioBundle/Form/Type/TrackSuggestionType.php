@@ -10,15 +10,15 @@ class TrackSuggestionType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-		$builder->add('link', 'text', array( 
-				'data' => "Paste your link here"
-			))
-			->add('email', 'email', array(
-				'label'		=> 'Your email',
-				'required' 	=> false))
-			->add('extra', 'textarea', array(
-				'label'		=> 'Why this track ?',
-				'required' 	=> false));
+        $builder->add('link', 'text', array(
+                'data' => "Paste your link here"
+            ))
+            ->add('email', 'email', array(
+                'label'		=> 'Your email',
+                'required' 	=> false))
+            ->add('extra', 'textarea', array(
+                'label'		=> 'Why this track ?',
+                'required' 	=> false));
     }
 
     public function getName()
@@ -26,10 +26,10 @@ class TrackSuggestionType extends AbstractType
         return 'melikey_radiobundle_tracksuggestiontype';
     }
 
-	public function setDefaultOptions(OptionsResolverInterface $resolver)
-	{
-		$resolver->setDefaults(array(
-			'data_class' => 'MeLikey\RadioBundle\Entity\TrackSuggestion',
-		));
-	}
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'MeLikey\RadioBundle\Entity\TrackSuggestion',
+        ));
+    }
 }
