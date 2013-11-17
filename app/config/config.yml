@@ -88,3 +88,7 @@ fos_rest:
         codes:
             'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
             'Symfony\Component\HttpKernel\Exception\NotFoundHttpException': 404
+
+fos_js_routing:
+    routes_to_expose:
+        - ^me_likey_api_.*

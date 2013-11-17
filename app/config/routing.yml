@@ -4,6 +4,7 @@ me_likey_web_app:
 
 me_likey_api:
     resource: "@MeLikeyApiBundle/Resources/config/routing.yml"
+    type: rest
     prefix:   /
     options:
         expose: true

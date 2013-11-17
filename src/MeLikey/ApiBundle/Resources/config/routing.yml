@@ -1,11 +1,14 @@
 tracks:
     type: rest
     resource: MeLikey\ApiBundle\Controller\TrackController
+    name_prefix: melikey_api_
 
 playlists:
     type: rest
     resource: MeLikey\ApiBundle\Controller\PlaylistController
+    name_prefix: melikey_api_
 
 tags:
     type: rest
     resource: MeLikey\ApiBundle\Controller\TagController
+    name_prefix: melikey_api_
