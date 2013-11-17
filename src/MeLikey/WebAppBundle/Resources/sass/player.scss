@@ -1,0 +1,16 @@
+@import "base";
+
+.player-controls {
+	.buffering-indicator { display: none; }
+	.pause { display: none; }
+	.play { display: block; }
+	&.playing {
+		.pause { display: block; }
+		.play { display: none; }
+	}
+	&.buffering {
+		.buffering-indicator { display: block }
+		.pause { display: none; }
+		.play { display: none; }
+	}
+}

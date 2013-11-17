@@ -1,0 +1,22 @@
+@import "base";
+
+.tracks-list {
+	width: 95%;
+	margin: 0 auto $header-height auto;
+	.track {
+		width: 200px;
+		display: inline-block;
+		margin: 15px;
+	}
+}
+
+.tags-list {
+	@include inline-block-list;
+	text-align: center;
+	li {
+		cursor: pointer;
+		color: $second-color;
+		padding: 30px 10px;
+		&.active { font-weight: 500; }
+	}
+}

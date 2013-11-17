@@ -1,0 +1,27 @@
+@import "base";
+
+.seekbar {
+	width: 100%;
+	background: darken($background-color, 7%);
+	height: 8px;
+	z-index: 0;
+	position: relative;
+	.played, .loaded {
+		position: absolute;	
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 100%;
+		max-width: 100%;
+	}
+	.loaded {
+		cursor: pointer;
+		background: lighten($background-color, 10%);
+		z-index: 1;
+	}
+	.played {
+		cursor: pointer;
+		background: $second-color;
+		z-index: 2;
+	}
+}

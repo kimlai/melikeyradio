@@ -1,0 +1,30 @@
+@import "base";
+
+.newsletter-subscription {
+	header {
+		@include dark-background-element;
+		font-family: 'Raleway';
+		width: 100%;
+		height: $header-height;
+		text-transform: uppercase;
+		font-size: 1.25em;
+		text-align: center;
+		h1 {
+			padding: $header-height/2 20px 20px 20px;
+			background: image-url('newsletter.png') no-repeat 0 25px;
+			width: 360px;
+			margin: auto;
+		}
+		#site-title {
+			font-size: 1.6em;
+		}
+	}
+	section {
+		max-width: 700px;
+		margin: 0 auto;
+		padding-top: $header-height;
+		label[for=melikey_radiobundle_newslettersubscriptiontype_email] {
+			text-align: right;
+		}
+	}
+}
