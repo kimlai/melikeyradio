@@ -7,4 +7,4 @@ MeLikey\RadioBundle\Entity\Tag:
     fields:
         name:
             type: string
-            unique: true  
+            unique: true

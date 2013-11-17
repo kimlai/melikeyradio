@@ -30,7 +30,7 @@ class PlaylistItem
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -50,7 +50,7 @@ class PlaylistItem
     /**
      * Get position
      *
-     * @return integer 
+     * @return integer
      */
     public function getPosition()
     {
@@ -70,7 +70,7 @@ class PlaylistItem
     /**
      * Get playlist
      *
-     * @return Playlist 
+     * @return Playlist
      */
     public function getPlaylist()
     {
@@ -90,7 +90,7 @@ class PlaylistItem
     /**
      * Get track
      *
-     * @return Track 
+     * @return Track
      */
     public function getTrack()
     {

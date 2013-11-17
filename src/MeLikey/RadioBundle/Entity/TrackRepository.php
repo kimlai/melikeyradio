@@ -21,7 +21,8 @@ class TrackRepository extends EntityRepository
             ->setMaxResults(10);
 
         if ($tags) {
-            $qb->join('t.tags', 'tag', 'WITH', $qb->expr()->in('tag.id', ':tags'))
+            $qb
+                ->join('t.tags', 'tag', 'WITH', $qb->expr()->in('tag.id', ':tags'))
                 ->setParameter('tags', $tags);
         }
 

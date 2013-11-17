@@ -33,7 +33,7 @@ class Track
      * @var string $title
      */
     private $title;
-	
+
     /**
      * @var string $musiclabel
      */
@@ -64,7 +64,7 @@ class Track
      */
     protected $tags;
 
-    public function __construct() 
+    public function __construct()
     {
         $this->created = new \DateTime();
         $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
@@ -81,8 +81,8 @@ class Track
     }
 
     /**
-	 * Set albumart.
-	 * TODO Cleans any existing thumbnails.
+     * Set albumart.
+     * TODO Cleans any existing thumbnails.
      *
      * @param string $albumart
      */
@@ -94,7 +94,7 @@ class Track
     /**
      * Get albumart
      *
-     * @return string 
+     * @return string
      */
     public function getAlbumart()
     {
@@ -126,7 +126,7 @@ class Track
     /**
      * Get musiclabel
      *
-     * @return string 
+     * @return string
      */
     public function getMusiclabel()
     {
@@ -146,7 +146,7 @@ class Track
     /**
      * Get website
      *
-     * @return string 
+     * @return string
      */
     public function getWebsite()
     {
@@ -166,7 +166,7 @@ class Track
     /**
      * Get artist
      *
-     * @return string 
+     * @return string
      */
     public function getArtist()
     {
@@ -186,7 +186,7 @@ class Track
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -218,7 +218,7 @@ class Track
         // the absolute directory path where uploaded documents should be saved
          return __DIR__.'/../../../../web/'.$this->getAlbumartUploadDir();
      }
-                                    
+
      protected function getAlbumartUploadDir()
      {
          // get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
@@ -238,7 +238,7 @@ class Track
     /**
      * Get youtube
      *
-     * @return string 
+     * @return string
      */
     public function getYoutube()
     {
@@ -258,7 +258,7 @@ class Track
     /**
      * Get soundcloud
      *
-     * @return string 
+     * @return string
      */
     public function getSoundcloud()
     {
@@ -278,7 +278,7 @@ class Track
     /**
      * Get vimeo
      *
-     * @return string 
+     * @return string
      */
     public function getVimeo()
     {

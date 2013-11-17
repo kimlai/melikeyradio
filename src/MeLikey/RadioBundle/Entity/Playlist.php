@@ -23,7 +23,7 @@ class Playlist
      * @var ArrayCollection $playlistItems
      */
     private $playlistItems;
-	
+
     public function __construct()
     {
         $this->playlistItems = new ArrayCollection();
@@ -32,7 +32,7 @@ class Playlist
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -52,7 +52,7 @@ class Playlist
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -86,7 +86,7 @@ class Playlist
     /**
      * Get playlistItems
      *
-     * @return ArrayCollection 
+     * @return ArrayCollection
      */
     public function getPlaylistItems()
     {

@@ -7,7 +7,7 @@ MeLikey\RadioBundle\Entity\Track:
             generator: { strategy: AUTO }
     fields:
         created:
-            type: datetime 
+            type: datetime
         albumart:
             type: string
             nullable: true
@@ -35,4 +35,4 @@ MeLikey\RadioBundle\Entity\Track:
             nullable: true
     manyToMany:
         tags:
-            targetEntity: Tag 
+            targetEntity: Tag
