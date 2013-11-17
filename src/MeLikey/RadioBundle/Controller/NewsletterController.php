@@ -29,19 +29,17 @@ class NewsletterController extends Controller
                 ));
                 $response = unserialize($response);
                 //Send a confirmation email.
-                if ($response['status'] == 'OK') {
-                    $message = \Swift_Message::newInstance()
-                        ->setSubject('MeLikeyRadio Newsletter subscription')
-                        ->setFrom('contact@melikeyradio.com')
-                        ->setTo($email)
-                        ->setBody($this->renderView('MeLikeyRadioBundle:Newsletter:subscription-success-email.txt.twig'));
-                    $this->get('mailer')->send($message);
-
-                    return $this->redirect($this->generateUrl('me_likey_radio_newsletter_thanks'));
-                } else {
-                    var_dump($response);
+                if (!$response['status'] == 'OK') {
                     throw new \Exception($response['error']);
                 }
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('MeLikeyRadio Newsletter subscription')
+                    ->setFrom('contact@melikeyradio.com')
+                    ->setTo($email)
+                    ->setBody($this->renderView('MeLikeyRadioBundle:Newsletter:subscription-success-email.txt.twig'));
+                $this->get('mailer')->send($message);
+
+                return $this->redirect($this->generateUrl('me_likey_radio_newsletter_thanks'));
             }
         }
 
