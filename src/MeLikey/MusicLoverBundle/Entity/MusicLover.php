@@ -13,17 +13,17 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class MusicLover extends BaseUser
 {
-	/**
-	* @ORM\Id
-	* @ORM\Column(type="integer")
-	* @ORM\GeneratedValue(strategy="AUTO")
-	*/
-	protected $id;
+    /**
+    * @ORM\Id
+    * @ORM\Column(type="integer")
+    * @ORM\GeneratedValue(strategy="AUTO")
+    */
+    protected $id;
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {

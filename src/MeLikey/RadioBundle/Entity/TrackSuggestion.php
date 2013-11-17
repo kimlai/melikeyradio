@@ -4,39 +4,39 @@ namespace MeLikey\RadioBundle\Entity;
 
 class TrackSuggestion
 {
-	protected $link;
+    protected $link;
 
-	protected $email;
+    protected $email;
 
-	protected $extra;
+    protected $extra;
 
-	public function getLink()
-	{
-		return $this->link;
-	}
+    public function getLink()
+    {
+        return $this->link;
+    }
 
-	public function setLink($link)
-	{
-		$this->link = $link;
-	}
+    public function setLink($link)
+    {
+        $this->link = $link;
+    }
 
-	public function getEmail()
-	{
-		return $this->email;
-	}
+    public function getEmail()
+    {
+        return $this->email;
+    }
 
-	public function setEmail($email)
-	{
-		$this->email = $email;
-	}
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
 
-	public function getExtra()
-	{
-		return $this->extra;
-	}
+    public function getExtra()
+    {
+        return $this->extra;
+    }
 
-	public function setExtra($extra)
-	{
-		$this->extra = $extra;
-	}
+    public function setExtra($extra)
+    {
+        $this->extra = $extra;
+    }
 }

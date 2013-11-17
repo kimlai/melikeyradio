@@ -29,13 +29,13 @@ class Playlist
      */
     private $name;
 
-	/**
-	 * @ORM\OneToMany(targetEntity="\MeLikey\RadioBundle\Entity\PlaylistItem", mappedBy="playlist", cascade={"persist"})
-	 * @ORM\OrderBy({"position" = "DESC"})
-	 */
-	private $playlistItems;
-	
-	public function __construct()
+    /**
+     * @ORM\OneToMany(targetEntity="\MeLikey\RadioBundle\Entity\PlaylistItem", mappedBy="playlist", cascade={"persist"})
+     * @ORM\OrderBy({"position" = "DESC"})
+     */
+    private $playlistItems;
+
+    public function __construct()
     {
         $this->playlistItems = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -43,7 +43,7 @@ class Playlist
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -63,25 +63,25 @@ class Playlist
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
         return $this->name;
     }
 
-	/**
-	 * Set playlistItems
-	 *
+    /**
+     * Set playlistItems
+     *
      * @param MeLikey\RadioBundle\Entity\PlaylistItem $playlistItems
      */
-	 public function setPlaylistItems(Collection $playlistItems)
-	 {
-	 	foreach($playlistItems as $pi) {
-			$pi->setPlaylist($this);
-		}
-		$this->playlistItems = $playlistItems;
-	 }
+     public function setPlaylistItems(Collection $playlistItems)
+     {
+         foreach ($playlistItems as $pi) {
+            $pi->setPlaylist($this);
+        }
+        $this->playlistItems = $playlistItems;
+     }
 
     /**
      * Add playlistItems
@@ -90,14 +90,14 @@ class Playlist
      */
     public function addPlaylistItem(\MeLikey\RadioBundle\Entity\PlaylistItem $playlistItem)
     {
-		$playlistItem->setPlaylist($this);
+        $playlistItem->setPlaylist($this);
         $this->playlistItems[] = $playlistItem;
     }
 
     /**
      * Get playlistItems
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getPlaylistItems()
     {

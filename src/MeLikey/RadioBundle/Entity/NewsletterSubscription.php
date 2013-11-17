@@ -26,7 +26,7 @@ class NewsletterSubscription
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {

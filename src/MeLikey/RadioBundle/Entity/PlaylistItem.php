@@ -28,22 +28,22 @@ class PlaylistItem
      */
     private $position;
 
-	/**
-	 * @ORM\ManyToOne(targetEntity="\MeLikey\RadioBundle\Entity\Playlist", inversedBy="playlisItems")
-	 * @ORM\JoinColumn(nullable=false)
-	 */
-	private $playlist;
+    /**
+     * @ORM\ManyToOne(targetEntity="\MeLikey\RadioBundle\Entity\Playlist", inversedBy="playlisItems")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $playlist;
 
-	/**
-	 * @ORM\ManyToOne(targetEntity="\MeLikey\RadioBundle\Entity\Track")
-	 * @ORM\JoinColumn(nullable=false)
-	 */
-	private $track;
+    /**
+     * @ORM\ManyToOne(targetEntity="\MeLikey\RadioBundle\Entity\Track")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $track;
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -57,21 +57,20 @@ class PlaylistItem
      */
     private $created;
 
-    public function __construct() 
+    public function __construct()
     {
-	$this->created = new \DateTime();
+    $this->created = new \DateTime();
     }
 
     /**
      * Get created
      *
-     * @return date 
+     * @return date
      */
     public function getCreated()
     {
         return $this->created;
     }
-
 
     /**
      * Set position
@@ -86,7 +85,7 @@ class PlaylistItem
     /**
      * Get position
      *
-     * @return integer 
+     * @return integer
      */
     public function getPosition()
     {
@@ -106,7 +105,7 @@ class PlaylistItem
     /**
      * Get playlist
      *
-     * @return MeLikey\RadioBundle\Entity\Playlist 
+     * @return MeLikey\RadioBundle\Entity\Playlist
      */
     public function getPlaylist()
     {
@@ -126,7 +125,7 @@ class PlaylistItem
     /**
      * Get track
      *
-     * @return MeLikey\RadioBundle\Entity\Track 
+     * @return MeLikey\RadioBundle\Entity\Track
      */
     public function getTrack()
     {

@@ -10,7 +10,7 @@ class NewsletterSubscriptionType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-		$builder->add('email', 'email');
+        $builder->add('email', 'email');
     }
 
     public function getName()
@@ -18,10 +18,10 @@ class NewsletterSubscriptionType extends AbstractType
         return 'melikey_radiobundle_newslettersubscriptiontype';
     }
 
-	public function setDefaultOptions(OptionsResolverInterface $resolver)
-	{
-		$resolver->setDefaults(array(
-			'data_class' => 'MeLikey\RadioBundle\Entity\NewsletterSubscription',
-		));
-	}
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'MeLikey\RadioBundle\Entity\NewsletterSubscription',
+        ));
+    }
 }

@@ -42,7 +42,7 @@ class Track
 
     /**
      * @var string $artist
-     * 
+     *
      * @ORM\Column(name="artist", type="string", length=255, nullable=FALSE)
      */
     private $artist;
@@ -53,8 +53,8 @@ class Track
      * @ORM\Column(name="title", type="string", length=255, nullable=FALSE)
      */
     private $title;
-	
-	/**
+
+    /**
      * @var string $musiclabel
      *
      * @ORM\Column(name="musiclabel", type="string", length=255, nullable=TRUE)
@@ -89,22 +89,22 @@ class Track
      */
     private $vimeo;
 
-	/**
-	 * @ORM\ManyToMany(targetEntity="MeLikey\RadioBundle\Entity\Tag")
-	 * @Serializer\Type("ArrayCollection")
-	 */
-	protected $tags;
+    /**
+     * @ORM\ManyToMany(targetEntity="MeLikey\RadioBundle\Entity\Tag")
+     * @Serializer\Type("ArrayCollection")
+     */
+    protected $tags;
 
-    public function __construct() 
+    public function __construct()
     {
-		$this->created = new \DateTime();
+        $this->created = new \DateTime();
         $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
      * Get created
      *
-     * @return date 
+     * @return date
      */
     public function getCreated()
     {
@@ -112,8 +112,8 @@ class Track
     }
 
     /**
-	 * Set albumart.
-	 * TODO Cleans any existing thumbnails.
+     * Set albumart.
+     * TODO Cleans any existing thumbnails.
      *
      * @param string $albumart
      */
@@ -125,23 +125,23 @@ class Track
     /**
      * Get albumart
      *
-     * @return string 
+     * @return string
      */
     public function getAlbumart()
     {
         return $this->albumart;
     }
 
-	private $artworkUrl;
-	/**
-	 * Set artworkUrl
-	 *
-	 * @param string $artworkUrl
-	 */
-	public function setArtworkUrl($url)
-	{
-		$this->artworkUrl = $url;
-	}
+    private $artworkUrl;
+    /**
+     * Set artworkUrl
+     *
+     * @param string $artworkUrl
+     */
+    public function setArtworkUrl($url)
+    {
+        $this->artworkUrl = $url;
+    }
 
     /**
      * Set musiclabel
@@ -156,7 +156,7 @@ class Track
     /**
      * Get musiclabel
      *
-     * @return string 
+     * @return string
      */
     public function getMusiclabel()
     {
@@ -176,7 +176,7 @@ class Track
     /**
      * Get website
      *
-     * @return string 
+     * @return string
      */
     public function getWebsite()
     {
@@ -196,7 +196,7 @@ class Track
     /**
      * Get artist
      *
-     * @return string 
+     * @return string
      */
     public function getArtist()
     {
@@ -216,7 +216,7 @@ class Track
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -233,27 +233,27 @@ class Track
         return $this->id;
     }
 
-	public function getAlbumartAbsolutePath()
-	{
-		return null === $this->albumart ? null : $this->getAlbumartUploadRootDir().'/'.$this->albumart;
-	}
+    public function getAlbumartAbsolutePath()
+    {
+        return null === $this->albumart ? null : $this->getAlbumartUploadRootDir().'/'.$this->albumart;
+    }
 
-	public function getAlbumartWebPath()
-	{
-		return null === $this->albumart ? null : $this->getAlbumartUploadDir().'/'.$this->albumart;
-	}
+    public function getAlbumartWebPath()
+    {
+        return null === $this->albumart ? null : $this->getAlbumartUploadDir().'/'.$this->albumart;
+    }
 
-	public function getAlbumartUploadRootDir()
-	{
-		// the absolute directory path where uploaded documents should be saved
-		 return __DIR__.'/../../../../web/'.$this->getAlbumartUploadDir();
-	 }
-					
-	 protected function getAlbumartUploadDir()
-	 {
-		 // get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
-		 return 'uploads/albumart';
-	 }
+    public function getAlbumartUploadRootDir()
+    {
+        // the absolute directory path where uploaded documents should be saved
+         return __DIR__.'/../../../../web/'.$this->getAlbumartUploadDir();
+     }
+
+     protected function getAlbumartUploadDir()
+     {
+         // get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
+         return 'uploads/albumart';
+     }
 
     /**
      * Set youtube
@@ -268,7 +268,7 @@ class Track
     /**
      * Get youtube
      *
-     * @return string 
+     * @return string
      */
     public function getYoutube()
     {
@@ -288,7 +288,7 @@ class Track
     /**
      * Get soundcloud
      *
-     * @return string 
+     * @return string
      */
     public function getSoundcloud()
     {
@@ -308,25 +308,25 @@ class Track
     /**
      * Get vimeo
      *
-     * @return string 
+     * @return string
      */
     public function getVimeo()
     {
         return $this->vimeo;
     }
 
-	public function getInfo()
-	{
-		return "$this->artist - $this->title";
-	}
+    public function getInfo()
+    {
+        return "$this->artist - $this->title";
+    }
 
-	public function getTags()
-	{
-		return $this->tags;
-	}
+    public function getTags()
+    {
+        return $this->tags;
+    }
 
-	public function setTags(Collection $tags)
-	{
-		$this->tags = $tags;
-	}
+    public function setTags(Collection $tags)
+    {
+        $this->tags = $tags;
+    }
 }

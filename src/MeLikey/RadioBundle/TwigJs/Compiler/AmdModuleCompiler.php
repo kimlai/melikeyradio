@@ -32,11 +32,11 @@ class AmdModuleCompiler extends ModuleCompiler
             ->write(" */\n")
             ->write("\n")
         ;
-		
-		/* Produce a require-js compatible module instead of a google closure global variable */
+
+        /* Produce a require-js compatible module instead of a google closure global variable */
         $compiler
-			->write("define(['twig'], function (Twig) {\n")
-			->indent()
+            ->write("define(['twig'], function (Twig) {\n")
+            ->indent()
             ->write("\n")
             ->write(
                 "/**\n",
@@ -45,7 +45,7 @@ class AmdModuleCompiler extends ModuleCompiler
                 " * @extends {twig.Template}\n",
                 " */\n"
             )
-            ->write("$functionName = function(env) {\n")
+            ->write("$functionName = function (env) {\n")
             ->indent()
             ->write("twig.Template.call(this, env);\n")
         ;
@@ -63,9 +63,9 @@ class AmdModuleCompiler extends ModuleCompiler
 
     protected function compileClassFooter(JsCompiler $compiler, \Twig_NodeInterface $node)
     {
-		$compiler
-			->write("return ".$this->functionName.";\n")
-			->outdent()
-			->write("});");
+        $compiler
+            ->write("return ".$this->functionName.";\n")
+            ->outdent()
+            ->write("});");
     }
 }

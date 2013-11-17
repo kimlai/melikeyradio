@@ -12,18 +12,18 @@ use Doctrine\ORM\EntityRepository;
  */
 class PlaylistItemRepository extends EntityRepository
 {
-	public function findByPlaylistandPosition($id, $position)	
-	{
-		$qb = $this->createQueryBuilder('i');
+    public function findByPlaylistandPosition($id, $position)
+    {
+        $qb = $this->createQueryBuilder('i');
 
-		$qb->where('i.playlist = :id')
-			->andWhere('i.position >= :position')
-			->andWhere('i.position <= :position + 2')
-			->setParameter('id', $id)
-			->setParameter('position', $position)
-			->Leftjoin('i.track', 't')
-			->addSelect('t');
+        $qb->where('i.playlist = :id')
+            ->andWhere('i.position >= :position')
+            ->andWhere('i.position <= :position + 2')
+            ->setParameter('id', $id)
+            ->setParameter('position', $position)
+            ->Leftjoin('i.track', 't')
+            ->addSelect('t');
 
-		return $qb->getQuery()->getResult();
-	}
+        return $qb->getQuery()->getResult();
+    }
 }
