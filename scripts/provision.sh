@@ -17,7 +17,17 @@ then
     apt-get update
 fi
 
-apt-get install -y php5-dev php5-cli php5-mysql mysql-server vim git
+if [ ! -f /etc/apt/sources.list.d/chris-lea-node_js-precise.list ]
+then
+    add-apt-repository -y ppa:chris-lea/node.js
+    apt-get update
+fi
+
+apt-get install -y php5-dev php5-cli php5-mysql mysql-server nodejs vim git rubygems
+
+npm install -g grunt-cli bower
+
+gem install compass
 
 # Configuring virtual machine
 
