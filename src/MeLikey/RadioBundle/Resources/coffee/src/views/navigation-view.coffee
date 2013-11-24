@@ -1,10 +1,10 @@
 define [
-  'views/base-view'
+  'views/base/view'
   'templates/navigation'
-], (BaseView, template) ->
+], (View, template) ->
   'use strict'
 
-  class NavigationView extends BaseView
+  class NavigationView extends View
     tagName: 'ul'
     autoRender: true
     template: template

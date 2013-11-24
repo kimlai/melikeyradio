@@ -1,14 +1,14 @@
 define [
   'models/track'
-  'views/base-view'
+  'views/base/view'
   'views/player-controls-view'
   'views/seekbar-view'
   'templates/track-full'
-  'facebookSDK'
-], (Track, BaseView, PlayerControlsView, SeekbarView, template, FB) ->
+  #'facebookSDK'
+], (Track, View, PlayerControlsView, SeekbarView, template, FB) ->
   'use strict'
 
-  class TrackView extends BaseView
+  class TrackView extends View
     autoRender: true
     tagName: 'article'
     className: 'track'
@@ -59,11 +59,10 @@ define [
       top = screen.height/2 - 225
       left = screen.width/2 - 275
       params =
-        url: Routing.generate 'me_likey_radio_single_track', {id: @model.id}, true
+        url: Routing.generate 'me_likey_api_get_track', {id: @model.id}, true
         via: 'melikeyradio'
         text: @model.get('artist') + ' - ' + @model.get('title')
       url = 'https://twitter.com/share?' + $.param params
-      console.debug url
       window.open url, '_blank', 'width=550,height=450,top='+top+',left='+left
 
     toggleLikey: ->

@@ -20,7 +20,3 @@ me_likey_radio_playlist_fragment:
     defaults: { _controller: MeLikeyRadioBundle:Default:playlistFragment, playlistID:1, position: 0 }
     options:
         expose: true
-
-me_likey_generate_templates:
-    pattern: /generatetemplates
-    defaults: { _controller: MeLikeyRadioBundle:Default:generateTemplates }

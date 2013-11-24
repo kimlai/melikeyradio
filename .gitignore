@@ -31,14 +31,15 @@ composer.lock
 
 node_modules
 npm-debug.log
+bower_components
 
 #-----------------------------------------
 #compiled coffescript, templates and sass
 #-----------------------------------------
 
-/src/MeLikey/RadioBundle/Resources/coffee/test/js/
-/src/MeLikey/RadioBundle/Resources/public/js/
-/src/MeLikey/RadioBundle/Resources/public/stylesheets/
+/src/MeLikey/WebAppBundle/Resources/coffee/test/js/
+/src/MeLikey/WebAppBundle/Resources/public/js/
+/src/MeLikey/WebAppBundle/Resources/public/stylesheets/
 *.sass-cache/
 
 #----------

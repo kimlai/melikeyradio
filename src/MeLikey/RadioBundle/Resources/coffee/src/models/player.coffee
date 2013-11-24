@@ -19,12 +19,14 @@ define [
     playerWrapper: null
 
     initialize: (attributes, options) ->
+      console.debug "Player.initialize"
       super
       options or= {}
       _.extend this, _.pick(options, 'autoplay', 'soundcloud', 'youtube', 'vimeo')
       @initializePlayerWrapper()
 
     initializePlayerWrapper: ->
+      console.debug "Player.initializePlayerWrapper"
       params =
         autoplay: @autoplay
         onError: @onError

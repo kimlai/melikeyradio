@@ -10,11 +10,11 @@ define [
 
   class SiteController extends Controller
 
-    beforeAction:
-      '.*.': ->
-        @compose 'globalPlayer', GlobalPlayerView, { region: 'globalPlayer' }
-        @compose 'playlist', PlaylistView, { region: 'playlist', collection: Chaplin.mediator.radioManager.playlist }
-        @compose 'header', HeaderView, { region: 'header' }
+    beforeAction: ->
+      super
+      @compose 'header', HeaderView, { region: 'header' }
+      @compose 'globalPlayer', GlobalPlayerView, { region: 'globalPlayer', model: Chaplin.mediator.radioManager.currentTrack }
+      @compose 'playlist', PlaylistView, { region: 'playlist', collection: Chaplin.mediator.radioManager.playlist }
 
     initialize: ->
       @subscribeEvent 'GlobalPlayer:next', @next

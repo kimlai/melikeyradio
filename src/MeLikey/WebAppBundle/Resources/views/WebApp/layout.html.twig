@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Me Likey Radio {% block title %}{% endblock %}</title>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:300,400' rel='stylesheet' type='text/css' />
+        <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+        <link href="{{ asset('bundles/melikeywebapp/stylesheets/jquery.mCustomScrollbar.css') }}" rel="stylesheet" type="text/css" />
+        {% stylesheets 'bundles/melikeywebapp/stylesheets/*' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+        <script>
+            //This code loads the Youtube IFrame Player API code asynchronously.
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        </script>
+
+        {% javascripts '@MeLikeyWebAppBundle/Resources/coffee/bower_components/requirejs/require.js' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        <script>
+            requirejs.config({
+                baseUrl: '{{ asset('bundles/melikeywebapp/js/') }}',
+                paths: {
+                    jquery: 'vendor/jquery/jquery',
+                    underscore: 'vendor/underscore/underscore',
+                    backbone: 'vendor/backbone/backbone',
+                    handlebars: 'vendor/handlebars/handlebars',
+                    text: 'vendor/requirejs-text/text',
+                    chaplin: 'vendor/chaplin/chaplin',
+                    soundcloudSDK: 'http://connect.soundcloud.com/sdk',
+                    twig: 'vendor/twig.dev',
+                    scrollbar: 'vendor/jquery.mCustomScrollbar.concat.min',
+                    facebookSDK: '//connect.facebook.net/en_US/all'
+                },
+                shim: {
+                    underscore: {
+                        exports: '_'
+                    },
+                    backbone: {
+                        deps: ['underscore', 'jquery'],
+                        exports: 'Backbone'
+                    },
+                    handlebars: {
+                        exports: 'Handlebars'
+                    },
+                    soundcloudSDK: {
+                        exports: 'SC',
+                        init: function() {
+                            SC.initialize({client_id: 'ad3f38b80f23db05a89a7ec3ef2ed696'});
+                            SC._baseUrl = 'http:' + SC._baseUrl;
+                        }
+                    },
+                    twig: {
+                        exports: 'Twig',
+                        init: function() {
+                            Twig.setFunction('path', function(path, params) { return Routing.generate(path, params); });
+                            Twig.setFunction('url', function(path, params) { return Routing.generate(path, params, true); });
+                        }
+                    },
+                    scrollbar: {
+                        deps: ['jquery'],
+                    },
+                    facebookSDK: {
+                        exports: 'FB',
+                        init: function() {
+                            FB.init({
+                                appId      : '215440595228754',                        // App ID from the app dashboard
+                                status     : true,                                 // Check Facebook Login status
+                                xfbml      : true                                  // Look for social plugins on the page
+                            });
+                        }
+                    }
+                }
+                // For easier development, disable browser caching
+                // Of course, this should be removed in a production environment
+                , urlArgs: 'bust=' +  (new Date()).getTime()
+                });
+
+                // Bootstrap the application
+                require(['application'], function(MeLikeyRadio) {
+                    window.app = new MeLikeyRadio({ root: '{{ path("me_likey_web_app_homepage") }}'});
+                });
+                </script>
+        </head>
+        <body>
+            <div id="site-container"> 
+                <div id="main-header">
+                    {% block header %}
+                        {% include 'MeLikeyWebAppBundle:WebApp:header.html.twig' %}
+                    {% endblock %}
+                </div>
+                <div id="main-container">
+                    {% block content %}{% endblock %}
+                </div>
+                <div id="main-footer">
+                    <div id="global-player">
+                        <article class="player">
+                            {% include 'MeLikeyWebAppBundle:WebApp:global-player.html.twig' %}
+                        </article>
+                    </div>
+                    <div id="global-playlist"></div>
+                </div>
+            </div>
+        </body>
+</html>

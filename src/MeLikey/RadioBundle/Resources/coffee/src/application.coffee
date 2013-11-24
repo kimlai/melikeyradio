@@ -1,11 +1,10 @@
 define [
   'chaplin'
   'routes'
-  'controllers/radio-controller'
   'views/layout'
   'lib/radio-manager'
   'lib/session-manager'
-], (Chaplin, routes, RadioController, Layout, RadioManager, SessionManager) ->
+], (Chaplin, routes, Layout, RadioManager, SessionManager) ->
   'use strict'
 
   # The application object
@@ -15,8 +14,8 @@ define [
     # “Controller title – Site title” (see Chaplin.Layout#adjustTitle)
     title: 'MeLikeyRadio'
 
-    initialize: (@root, @playlistID) ->
-      super
+    initialize: (playlistID) ->
+      #super
 
       # Initialize core components.
       # ---------------------------
@@ -27,7 +26,7 @@ define [
       # the root per default. You might change that in the options
       # if necessary:
       # @initRouter routes, pushState: false, root: '/subdir/'
-      @initRouter routes, root: @root
+      @initRouter routes
 
       # Dispatcher listens for routing events and initialises controllers.
       @initDispatcher controllerSuffix: '-controller'
@@ -39,10 +38,10 @@ define [
       @initComposer()
 
       # Mediator is a global message broker which implements pub / sub pattern.
-      @initMediator(@playlistID)
+      @initMediator(playlistID)
 
       # Actually start routing.
-      @startRouting()
+      @start()
 
       # Freeze the application instance to prevent further changes.
       Object.freeze? this
@@ -55,10 +54,10 @@ define [
 
     # Create additional mediator properties
     # -------------------------------------
-    initMediator: (playlistID) ->
+    initMediator: ->
       # Add additional application-specific properties and methods
       # e.g. Chaplin.mediator.prop = null
-      Chaplin.mediator.radioManager = new RadioManager {playlistID: playlistID}
+      Chaplin.mediator.radioManager = new RadioManager {playlistID: 25}
       Chaplin.mediator.sessionManager = new SessionManager()
 
       # Seal the mediator.

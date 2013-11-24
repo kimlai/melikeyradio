@@ -1,7 +1,7 @@
 define [
   'models/player'
   'views/base/view'
-  'text!templates/player-controls.hbs'
+  'templates/player-controls'
 ], (Track, View, template) ->
   'use strict'
 
@@ -44,6 +44,7 @@ define [
         @$el.removeClass 'buffering'
 
     play: ->
+      debugger
       @model.play()
 
     pause: ->

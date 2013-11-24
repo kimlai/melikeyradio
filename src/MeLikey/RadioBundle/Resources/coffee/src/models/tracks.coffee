@@ -8,7 +8,7 @@ define [
     model: Track
     url: Routing.generate('me_likey_radio_tracks')
 
-    initialize: ->
+    initialize: (models, options) ->
       @on 'remove', (track) ->
         track.dispose()
 

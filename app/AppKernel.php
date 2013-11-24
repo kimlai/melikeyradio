@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new MeLikey\RadioBundle\MeLikeyRadioBundle(),
             new MeLikey\MusicLoverBundle\MeLikeyMusicLoverBundle(),
             new MeLikey\ApiBundle\MeLikeyApiBundle(),
+            new MeLikey\WebAppBundle\MeLikeyWebAppBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

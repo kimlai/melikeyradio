@@ -1,6 +1,6 @@
 define [
   'views/base/view'
-  'text!templates/seekbar.hbs'
+  'templates/seekbar'
 ], (View, template) ->
   'use strict'
 

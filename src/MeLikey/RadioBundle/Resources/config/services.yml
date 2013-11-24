@@ -1,7 +1,6 @@
 parameters:
     melikey_radio.twig_extension.class: MeLikey\RadioBundle\Extension\MeLikeyTwigExtension
     validator.unique.is_unsubscribed_to_newsletter.class: MeLikey\RadioBundle\Validator\Constraints\isUnsubscribedToNewsletterValidator
-    twig_js.compile_request_handler.class: MeLikey\RadioBundle\TwigJs\CompileRequestHandler
 
 services:
     melikey_radio.twig.extension:
@@ -14,7 +13,3 @@ services:
         arguments: [@snowcap_mailjet.client]
         tags:
             - { name: validator.constraint_validator, alias: is_unsubscribed_to_newsletter_validator }
-
-    twig_js.compile_request_handler:
-        class: %twig_js.compile_request_handler.class%
-        arguments: [@twig, @twig_js.compiler]

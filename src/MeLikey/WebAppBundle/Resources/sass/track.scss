@@ -1,0 +1,138 @@
+@import "base";
+
+.track {
+    .source {
+        line-height: 26px;
+        a {
+            width: 26px;
+            height: 26px;
+            display: inline-block;
+            &.soundcloud { @include replace-text('soundcloud-source.png', 0, 2px); }
+            &.youtube { @include replace-text('youtube-source.png', 0, 0); }
+            &.vimeo { @include replace-text('vimeo-source.png', 0, 0); }
+        }
+    }
+    &.big {
+        min-width: 630px;
+        margin-bottom: $header-height* 2/3 + 10px; //so it's never hidden by the footer. Hackish...
+        font-size: 1.2em;
+        position: absolute;
+        top: 2*$header-height;
+        left: 47%;
+        margin-left: -300px;
+        .artwork {
+            border: 10px solid $background-color;
+            float: left; 
+            width: 300px;
+            height: 300px;
+            background: darken($background-color, 3%);
+        }	
+        .infos {
+            padding: 10px 0 0 345px; //340 = 300 (artworkWidth) + 2*10 (img borders) + 25 (actual padding).
+            max-width: 600px;
+            a { @include link-colors($first-color); }
+            .artist {
+                font-size: 2.2em; 
+                padding-bottom: 10px;
+            }
+            .title {
+                font-size: 1.7em; 
+                padding-bottom: 30px;
+            }
+        }
+        .extra-infos {
+            margin-bottom: 1.1em; // So actions icons never get stepped on.
+            a { @include link-colors($second-color); }
+        }
+        &:hover .player-controls { @include opacity(1); }
+        .actions {
+            @include horizontal-list;
+            position: absolute;
+            bottom: 5px;
+            font-size: 0.75em;
+            font-weight: 400;
+            padding: 3px;
+            a { 
+                cursor: pointer;
+                padding: 3px 6px 3px 18px; 
+                &.addLikey { background: image-url('add-likey-track-full.png') 0 6px no-repeat; }
+                &.fb-share { background: image-url('fb-track-full.png') 3px 5px no-repeat; }
+                &.tw-share { background: image-url('twitter-track-full.png') 0 6px no-repeat; }
+                &.permalink { background: image-url('permalink-track-full.png') 0 6px no-repeat; }
+            }
+        }
+        .player-controls {
+            @include opacity(0);
+            position: absolute;
+            top: 125px;
+            left: 125px;
+            div {
+                cursor: pointer;
+                width: 50px;
+                height: 50px;
+            }
+            .play { @include replace-text('player-controls-track-full.png', 0px, 0px); }
+            .pause { @include replace-text('radioplayer-controls.png', 0px, -65px); }
+            @include transition-property(opacity);
+            @include transition-duration(0.3s);
+        }
+    }
+    &.compact {
+        @include dark-background-element;
+        font-size: 0.85em;
+        position: relative;
+        border: 10px solid $background-color;
+        .artwork, .seekbar {
+            float: left; // To eliminate weird 1px white-space between the two. Might be IE incompatible...
+        }	
+        .artwork {
+            width: 200px;
+            height: 200px;
+            background: darken($background-color, 3%);
+        }
+        .player-controls, .toggle-infos, .actions li {
+            margin: 5px 5px 0 5px;
+            float: left; 
+        }
+        .actions a {
+            display: block;
+            width: 14px;
+            height: 14px;
+            cursor: pointer;
+            &.addLikey { @include replace-text('add-likey-compact.png', 0, 0); }
+            &.addLikey:hover { @include replace-text('add-likey-compact-hover.png', 0, 0); }
+            &.fb-share { @include replace-text('fb-track-compact.png', 0, -1px); }
+            &.fb-share:hover { @include replace-text('fb-track-compact-hover.png', 0, -1px); }
+            &.tw-share { @include replace-text('twitter-track-compact.png', 0, -1px); }
+            &.tw-share:hover { @include replace-text('twitter-track-compact-hover.png', 0, -1px); }
+            &.permalink { @include replace-text('add-likey-compact.png', 0, 0); }
+            &.permalink:hover { @include replace-text('add-likey-compact-hover.png', 0, 0); }
+        }
+        .infos {
+            clear: both;
+            .artist {
+                padding: 5px 0;
+                text-transform: uppercase; 
+            }
+            .title {
+                font-size: 0.85em;
+            }
+        }
+        .extra-infos {
+            display: none;
+            position: absolute;
+            top: 0;
+            padding: 10px;
+        }
+        .player-controls {
+            div {
+                cursor: pointer;
+                width: 15px;
+                height: 15px;
+            }
+            .buffering-indicator { @include replace-text('player-controls-spinner-compact.gif', 0, 0); }
+            .play { @include replace-text('player-controls-compact.png', -5px, -37px); }
+            .pause { @include replace-text('player-controls-compact.png', -5px, -7px); }
+        }
+    }
+}
