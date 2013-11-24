@@ -1,0 +1,7 @@
+{% extends 'MeLikeyWebAppBundle:WebApp:layout.html.twig' %}
+
+{% block content %}
+    <article class="track big">
+        {% include 'MeLikeyWebAppBundle:Track:full.html.twig' with { track: track } %}
+    <article>
+{% endblock %}

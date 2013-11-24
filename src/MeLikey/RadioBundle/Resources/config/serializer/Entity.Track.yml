@@ -1,0 +1,7 @@
+MeLikey\RadioBundle\Entity\Track:
+    properties:
+        albumart:
+            access_type: public_method
+            accessor:
+                getter: getAlbumartWebPath
+            serialized_name: albumartWebPath

@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Suggestion Box{% endblock %}
+
+{% block stylesheets %}
+  {% stylesheets
+  	'bundles/melikeywebapp/stylesheets/track-suggestion.css'
+  	'bundles/melikeywebapp/stylesheets/screen.css'
+  	'bundles/melikeywebapp/stylesheets/form.css'
+	filter='cssrewrite' %}
+  	<link rel="stylesheet" href="{{ asset_url }}" />
+  {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+	<article class="suggestion-box">
+		<header>
+			<div id="site-title">Me Likey Radio</div>
+			<h1>Suggestion Box</h1>
+		</header>
+		<section>
+			{% block content %}{% endblock %}
+		</section>
+	</article>
+{% endblock %}

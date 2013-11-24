@@ -1,11 +1,11 @@
 define [
   'models/tag'
-  'views/base-view'
+  'views/base/view'
   'templates/tag'
-], (Tag, BaseView, template) ->
+], (Tag, View, template) ->
   'use strict'
 
-  class TagView extends BaseView
+  class TagView extends View
     autoRender: true
     tagName: 'li'
     className: 'tag'

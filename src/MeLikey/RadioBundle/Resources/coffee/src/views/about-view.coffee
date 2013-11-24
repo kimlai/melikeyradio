@@ -1,10 +1,10 @@
 define [
-  'views/base-view'
+  'views/base/view'
   'templates/about'
-], (BaseView, template) ->
+], (View, template) ->
   'use strict'
 
-  class AboutView extends BaseView
+  class AboutView extends View
     tagName: 'article'
     className: 'about'
     autoRender: true

@@ -2,8 +2,9 @@ define [
   'chaplin'
   'models/track'
   'models/tracks'
+  'models/playlist'
   'lib/utils'
-], (Chaplin, Track, Tracks, utils) ->
+], (Chaplin, Track, Tracks, Playlist, utils) ->
   'use strict'
   
   #
@@ -14,21 +15,14 @@ define [
   class RadioManager
 
     _(@prototype).extend Chaplin.EventBroker # Grants Pub/Sub capabilities.
-    playlistID: 1
+    playlistID: 25
     position: 0
     playlist: null
 
     constructor: (options) ->
       _(this).extend _.pick options, ['playlistID', 'position']
-      @playlist = new Tracks null,
-        url: Routing.generate('me_likey_radio_playlist_fragment')
-        model : (attrs, options) ->
-          t = new Track attrs.track, _.extend options, {addToVault: true} # models are automatically added to the vault
-          t.position = attrs.position
-          return t
-        comparator: (t) -> t.position
+      @playlist = new Playlist null, { id: @playlistID }
       @playlist.on 'remove', (track) ->
-        console.debug "removing an item from the playlist"
         Track.removeFromVault track
         track.dispose()
       @subscribeEvent 'Track:play', @onTrackPlay

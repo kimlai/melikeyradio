@@ -10,8 +10,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class PlaylistRepository extends EntityRepository
 {
-    // TODO add the "fragment" part of this thing. Currently returns the whole playlist.
-    public function findPlaylistFragment($id, $position)
+    public function find($id)
     {
         $qb = $this->createQueryBuilder('p');
 
@@ -20,7 +19,7 @@ class PlaylistRepository extends EntityRepository
             ->addSelect('pi')
             ->join('pi.track', 't')
             ->addSelect('t')
-            ->orderBy('pi.position', 'ASC')
+            ->orderBy('pi.position', 'DESC')
             ->setParameters(array(
                 'id' => $id,
             ));

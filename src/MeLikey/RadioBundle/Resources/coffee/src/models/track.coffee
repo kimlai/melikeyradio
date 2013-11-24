@@ -44,6 +44,7 @@ define [
         super
 
     initializePlayer: (options) ->
+      console.debug "Track.initializePlayer"
       player = @player
       if not player?
         @player = new Player {}, _.extend(@getAttributes(), {autoplay: @autoplay})
@@ -53,6 +54,7 @@ define [
         @listenTo @player, 'Player:error', @onPlayerError
 
     play: ->
+      console.debug "Track.play"
       if @player.get 'ready'
         @player.play()
       else
@@ -63,6 +65,7 @@ define [
 
     onPlayerPlayStateChange: ->
       if @player.get 'playing'
+        console.debug "coucou"
         @publishEvent 'Track:play', this
         
     onPlayerFinish: ->

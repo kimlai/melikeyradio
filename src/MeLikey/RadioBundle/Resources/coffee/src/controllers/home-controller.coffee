@@ -13,7 +13,6 @@ define [
       if track?
         @model = track
       options =
-        region: 'main'
         controls: true
         seekbar: false
         className: 'track big'

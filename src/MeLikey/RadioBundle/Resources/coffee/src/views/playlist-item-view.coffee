@@ -1,11 +1,11 @@
 define [
   'models/track'
-  'views/base-view'
+  'views/base/view'
   'templates/playlist-item'
-], (Track, BaseView, template) ->
+], (Track, View, template) ->
   'use strict'
 
-  class PlaylistItemView extends BaseView
+  class PlaylistItemView extends View
     autoRender: true
     tagName: 'article'
     className: 'playlist-item'
@@ -28,4 +28,3 @@ define [
       return if not @model?
       track:
         @model.getAttributes()
-

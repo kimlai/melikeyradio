@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Newsletter Subscription{% endblock %}
+
+{% block stylesheets %}
+  {% stylesheets
+  	'bundles/melikeywebapp/stylesheets/newsletter-subscription.css'
+  	'bundles/melikeywebapp/stylesheets/screen.css'
+  	'bundles/melikeywebapp/stylesheets/form.css'
+	filter='cssrewrite' %}
+  	<link rel="stylesheet" href="{{ asset_url }}" />
+  {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+	<article class="newsletter-subscription">
+		<header>
+			<div id="site-title">Me Likey Radio</div>
+			<h1>Newsletter Subscription</h1>
+		</header>
+		<section>
+			{% block content %}{% endblock %}
+		</section>
+	</article>
+{% endblock %}

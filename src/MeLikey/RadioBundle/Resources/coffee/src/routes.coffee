@@ -5,7 +5,7 @@ define ->
   # `match` is match method of the Router
   (match) ->
     match '', 'home#show'
-    match 'tracks/:id', 'tracks#show'
-    match 'tracks', 'tracks#index'
+    match 'track/:id', 'tracks#show'
+    match 'latest', 'tracks#index'
     match 'about', 'static-stuff#about'
     match 'contact', 'static-stuff#contact'

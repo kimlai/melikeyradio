@@ -1,0 +1,45 @@
+me_likey_web_app_homepage:
+    pattern:  /
+    defaults: { _controller: MeLikeyWebAppBundle:WebApp:index }
+    options:
+        expose: true
+
+me_likey_web_app_blog:
+    pattern:  /latest/{page}
+    defaults: { _controller: MeLikeyWebAppBundle:WebApp:blog, page: 1 }
+    options:
+        expose: true
+
+me_likey_web_app_track_show:
+    pattern: /track/{id}
+    defaults: { _controller: MeLikeyWebAppBundle:Track:show }
+    options:
+        expose: true
+
+me_likey_web_app_contact:
+    pattern:  /contact
+    defaults: { _controller: MeLikeyWebAppBundle:WebApp:contact }
+    options:
+        expose: true
+
+me_likey_web_app_about:
+    pattern:  /about
+    defaults: { _controller: MeLikeyWebAppBundle:WebApp:contact }
+    options:
+        expose: true
+
+me_likey_web_app_suggestion:
+    pattern:  /suggestion
+    defaults: { _controller: MeLikeyWebAppBundle:WebApp:suggestion }
+    options:
+        expose: true
+
+me_likey_web_app_contact:
+    pattern:  /likeys
+    defaults: { _controller: MeLikeyWebAppBundle:WebApp:likeys }
+    options:
+        expose: true
+
+me_likey_generate_templates:
+    pattern: /generatetemplates
+    defaults: { _controller: MeLikeyWebAppBundle:WebApp:generateTemplates }

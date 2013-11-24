@@ -1,13 +1,11 @@
 define [
-  'views/base-view'
+  'views/base/view'
   'templates/header'
-], (BaseView, template) ->
+], (View, template) ->
   'use strict'
 
-  class HeaderView extends BaseView
+  class HeaderView extends View
     tagName: 'header'
     autoRender: true
     template: template
     template = null
-
-    initialize: ->

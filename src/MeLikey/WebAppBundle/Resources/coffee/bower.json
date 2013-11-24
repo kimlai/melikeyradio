@@ -1,0 +1,27 @@
+{
+  "name": "melikeyradio",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kimlai/melikeyradio",
+  "description": "webclient for http://melikeyradio.com",
+  "authors": [
+    "kimlai.t@gmail.com"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3",
+    "requirejs": "~2.1.9",
+    "backbone": "~1.1.0",
+    "underscore": "~1.5.2",
+    "handlebars": "~1.1.2",
+    "requirejs-text": "~2.0.9",
+    "chaplin": "~0.11.3"
+  }
+}

@@ -9,7 +9,8 @@
     <script src="../node_modules/sinon-chai/lib/sinon-chai.js"></script>
     <script src="../node_modules/sinon/lib/sinon.js"></script>
     <script src="../node_modules/sinon/lib/sinon/spy.js"></script>
-    <script src="../node_modules/requirejs/require.js"></script>
+    <script src="../../public/js/vendor/requirejs/require.js"></script>
+    <script src="../../public/js/vendor/router.js"></script>
     <script>
 	  //TODO : move this in a requirejs-module. This code loads the IFrame Player API code asynchronously.
 	  var tag = document.createElement('script');
@@ -28,9 +29,9 @@
         baseUrl: 'js',
         paths: {
           jquery: 'jquery-1.9.1',
-          underscore: '../../node_modules/underscore/underscore',
-          backbone: '../../node_modules/backbone/backbone',
-		  soundcloudSDK: 'http://connect.soundcloud.com/sdk'
+          underscore: '../../../public/js/vendor/underscore/underscore',
+          backbone: '../../../public/js/vendor/backbone/backbone',
+	  soundcloudSDK: 'http://connect.soundcloud.com/sdk'
         },
         shim: {
           backbone: {
@@ -40,12 +41,12 @@
           underscore: {
             exports: '_'
           },
-		  soundcloudSDK: {
-			exports: 'SC',
-			init: function() {
-			  SC.initialize({client_id: 'ad3f38b80f23db05a89a7ec3ef2ed696'});
-			}
-		  }
+	  soundcloudSDK: {
+	      exports: 'SC',
+	      init: function() {
+	          SC.initialize({client_id: 'ad3f38b80f23db05a89a7ec3ef2ed696'});
+	      }
+	  }
         },
         // For easier development, disable browser caching
         urlArgs: 'bust=' + (new Date()).getTime()
@@ -71,7 +72,7 @@
 			'soundcloud-wrapper',
 			'youtube-wrapper',
 			'player',
-			'tracks'
+	//		'tracks'
         ];
         var loaded = [];
         for (var i = 0, l = specs.length; i < l; i++) {
