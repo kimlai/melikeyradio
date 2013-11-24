@@ -1,6 +1,6 @@
 -
-    artist: toto
-    title: tata
+    artist: Groove Cereal
+    title: Take Time
     website: http://toto.com
     musiclabel: http://tata.com
     albumart: 12345
@@ -8,11 +8,110 @@
     tags: [ electro, hip_hop ]
     reference: track_0
 -
-    artist: tutu
-    title: titi
+    artist: Broken Twin
+    title: Sun has gone
     website: http://tutu.com
     musiclabel: http://titi.com
     albumart: 54321
     soundcloud: https://soundcloud.com/antirecords/broken-twin-sun-has-gone
     tags: [ electro, folk ]
     reference: track_1
+-
+    artist: the Hics
+    title: Tangle
+    website: http://tutu.com
+    musiclabel: http://titi.com
+    albumart: 54321
+    soundcloud: https://soundcloud.com/the-hics/tangle
+    tags: [ electro, jazz ]
+    reference: track_2
+-
+    artist: Alju Barrota
+    title: Chord Marauder
+    website: http://tutu.com
+    musiclabel: http://titi.com
+    albumart: 54321
+    soundcloud: https://soundcloud.com/chord-marauders/aljubarrota-b9-chord-marauder
+    tags: [ electro, jazz ]
+    reference: track_3
+-
+    artist: Audialist
+    title: Serpent Free
+    website: http://tutu.com
+    musiclabel: http://titi.com
+    albumart: 54321
+    soundcloud: https://soundcloud.com/deepheads/audialist-serpent-free
+    tags: [ electro, jazz ]
+    reference: track_4
+-
+    artist: Volta Cab
+    title: Don't give up
+    website: http://tutu.com
+    musiclabel: http://titi.com
+    albumart: 54321
+    soundcloud: https://soundcloud.com/deepheads/volta-cab-dont-give-up
+    tags: [ electro, jazz ]
+    reference: track_5
+-
+    artist: Skyphos
+    title: Like a bird free
+    website: http://tutu.com
+    musiclabel: http://titi.com
+    albumart: 54321
+    soundcloud: https://soundcloud.com/deepheads/skyphos-fly-like-a-bird-free
+    tags: [ electro, jazz ]
+    reference: track_6
+-
+    artist: Nina Simone
+    title: Feeling good
+    website: http://tutu.com
+    musiclabel: http://titi.com
+    albumart: 54321
+    soundcloud: https://soundcloud.com/deepheads/nina-simone-feel-good-skyphos
+    tags: [ electro, jazz ]
+    reference: track_7
+-
+    artist: Teen Daze
+    title: You
+    website: http://tutu.com
+    musiclabel: http://titi.com
+    albumart: 54321
+    soundcloud: https://soundcloud.com/teendaze/nils-frahm-you-teen-daze
+    tags: [ electro, jazz ]
+    reference: track_8
+-
+    artist: Sage Francis
+    title: You can't win
+    website: http://tutu.com
+    musiclabel: http://titi.com
+    albumart: 54321
+    soundcloud: https://soundcloud.com/strangefamousrecords/you-cant-win
+    tags: [ electro, jazz ]
+    reference: track_9
+-
+    artist: William Bloomfield
+    title: Love
+    website: http://tutu.com
+    musiclabel: http://titi.com
+    albumart: 54321
+    soundcloud: https://soundcloud.com/william-bloomfield/daughter-love-will-bloomfield
+    tags: [ electro, jazz ]
+    reference: track_10
+-
+    artist: Flofillz
+    title: Once again
+    website: http://tutu.com
+    musiclabel: http://titi.com
+    albumart: 54321
+    soundcloud: https://soundcloud.com/flofills/onceagain
+    tags: [ electro, jazz ]
+    reference: track_11
+-
+    artist: Musique Large
+    title: Chewing Gum
+    website: http://tutu.com
+    musiclabel: http://titi.com
+    albumart: 54321
+    soundcloud: https://soundcloud.com/musiquelarge/chewing-gum-avec-mesparrow-1
+    tags: [ electro, jazz ]
+    reference: track_12
