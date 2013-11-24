@@ -2,8 +2,9 @@ define [
   'chaplin'
   'models/track'
   'models/tracks'
+  'models/playlist'
   'lib/utils'
-], (Chaplin, Track, Tracks, utils) ->
+], (Chaplin, Track, Tracks, Playlist, utils) ->
   'use strict'
   
   #

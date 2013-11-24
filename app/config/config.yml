@@ -92,3 +92,9 @@ fos_rest:
 fos_js_routing:
     routes_to_expose:
         - ^me_likey_api_.*
+
+jms_serializer:
+    metadata:
+        cache: false
+        debug: true
+        auto_detection: true
