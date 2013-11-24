@@ -34,8 +34,6 @@ assetic:
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
-        #twig_js:
-        #    resource: "%kernel.root_dir%/../vendor/jms/twig-js-bundle/JMS/TwigJsBundle/Resources/config/services.xml"
 
 # Doctrine Configuration
 doctrine:
@@ -94,13 +92,3 @@ fos_rest:
         codes:
             'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
             'Symfony\Component\HttpKernel\Exception\NotFoundHttpException': 404
-
-fos_js_routing:
-    routes_to_expose:
-        - ^me_likey_api_.*
-
-jms_serializer:
-    metadata:
-        cache: false
-        debug: true
-        auto_detection: true
