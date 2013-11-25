@@ -30,12 +30,9 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        ['MeLikeyRadioBundle', 'MeLikeyMusicLoverBundle']
-    #java: /usr/bin/java
+    bundles:        ['MeLikeyWebAppBundle']
     filters:
         cssrewrite: ~
-        #twig_js:
-        #    resource: "%kernel.root_dir%/../vendor/jms/twig-js-bundle/JMS/TwigJsBundle/Resources/config/services.xml"
 
 # Doctrine Configuration
 doctrine:
@@ -47,9 +44,6 @@ doctrine:
         user:     %database_user%
         password: %database_password%
         charset:  UTF8
-        # if using pdo_sqlite as your database driver, add the path in parameters.yml
-        # e.g. database_path: %kernel.root_dir%/data/data.db3
-        # path:     %database_path%
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%

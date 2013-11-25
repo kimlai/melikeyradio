@@ -6,7 +6,7 @@ define [
 
   class Tracks extends Collection
     model: Track
-    url: Routing.generate('me_likey_radio_tracks')
+    url: Routing.generate('melikey_api_get_tracks')
 
     initialize: (models, options) ->
       @on 'remove', (track) ->

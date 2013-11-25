@@ -1,0 +1,181 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "base";
+@import "compass/reset";
+html, body {
+	height: 100%;
+}
+body {
+	overflow-x: hidden;
+	overflow-y: scroll;
+	color: $first-color;
+	@include normal-font;
+	@include background(image-url('background.png'));
+}
+
+a {
+	@include unstyled-link;
+	@include link-colors($second-color);
+}
+
+iframe {
+	margin-left: 100%;
+	margin-top: -100%;
+}
+
+/************************
+ *	  MAIN-HEADER
+ ***********************/
+
+#main-header {
+	z-index: 1;
+	width: 100%;
+	position: fixed;
+	height: $header-height;
+	top: 0;
+	left: 0;
+	border-bottom: 1px solid lighten($background-color, 5%);
+	@include dark-background-element;
+}
+
+/******************
+ *	SITE-TITLE
+ *****************/
+
+#site-title {
+	font-family: 'Raleway';
+	font-size: 2em;
+	text-transform: uppercase;
+	color: lighten($background-color, 7%);
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	text-shadow: none;
+}
+
+/**********************
+ *	  MAIN-NAV
+ *********************/
+
+#main-nav ul {
+	@include inline-block-list;
+	font-family: 'Raleway';
+	text-transform: uppercase;
+	font-size: 1.25em;
+	text-align: center;
+	li {
+		padding: $header-height/2 20px 0 20px;
+		border-top: 5px solid $background-color;
+		&.active {
+			border-top: 5px solid $second-color;
+		}
+	}
+}
+
+/********************
+ *	SECONDARY-NAV
+ *******************/
+
+#secondary-nav {
+	position: absolute;
+	top: 5px;
+	right: 50px;
+	text-align: right;
+	font-size: 0.8em;
+	li {line-height: 1.5em;}
+	a {
+		@include transition-property(color);
+		@include transition-duration(200ms);
+		&:hover {color: $second-color; }
+	}
+}
+
+/********************
+ * 	SOCIAL LINKS
+ *******************/
+
+#social-links {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
+	li {
+		padding-bottom: 10px;
+	}
+	.facebook, .twitter {
+		display: block;
+		width: 30px;
+		height: 30px;
+		@include transition-property(background);
+		@include transition-duration(250ms);
+	}
+	.facebook {
+		@include replace-text('fb-30x30.png', 0, 0);
+		&:hover {
+			@include replace-text('fb-30x30-hover.png', 0, 0);
+		}
+	}
+	.twitter {
+		@include replace-text('twitter-30x30.png', 0, 0);
+		&:hover {@include replace-text('twitter-30x30-hover.png', 0, 0);}
+	}
+}
+
+/**********************
+ *	MAIN-CONTAINER
+ *********************/
+
+#main-container {
+	padding-top: $header-height;
+	@include opacity(1);
+	&.loading { @include opacity(0); }
+	@include transition-property(opacity);
+	@include transition-duration(0.3s);
+}
+
+/******************
+ *	MAIN-FOOTER
+ *****************/
+
+#main-footer {
+	height: $header-height *2/3;
+	width: 100%;
+	background: $background-color;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	border-top: 1px solid lighten($background-color, 5%);
+	@include dark-background-element;
+	&.expanded {
+		height: $header-height *4/3;
+	}
+	@include transition-property(height);
+	@include transition-duration(0.5s);
+	@include transition-timing-function(cubic-bezier(0.77, 0, 0.175, 1));
+}
+
+/*******************
+ *	MAIN-LOADER
+ ******************/
+
+#main-loader {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -50px;
+	z-index: 0;
+	@include transition-property(top);
+	@include transition-duration(400ms);
+	width: 50px;
+	height: 50px;
+	@include replace-text('main-loader.png', 0, 0);
+	&.loading {
+		top: 2*$header-height;
+		@include animation(content-loader 1s infinite);
+	}
+}

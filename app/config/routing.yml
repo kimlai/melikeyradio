@@ -1,5 +1,10 @@
+me_likey_web_app:
+    resource: "@MeLikeyWebAppBundle/Resources/config/routing.yml"
+    prefix:   /
+
 me_likey_api:
     resource: "@MeLikeyApiBundle/Resources/config/routing.yml"
+    type: rest
     prefix:   /
     options:
         expose: true

@@ -1,0 +1,39 @@
+@import "base";
+
+textarea,
+input {
+	padding: 4px 2px;
+	border: solid 1px #00BAFF;
+	width: 400px;
+	margin: 0 0 10px 10px;
+}
+
+textarea {
+	font-size: 1em;
+}
+
+label{
+	display:block;
+	text-align:left;
+	width:105px;
+	float:left;
+	padding: 4px;
+	font-size: 0.85em;
+}
+
+form .button {
+	cursor: pointer;
+	margin-left:124px;
+	width:125px;
+	height:30px;
+	color: white;
+	background:#333333;
+	text-align:center;
+	border: none;
+}
+
+.errors {
+	color: red;
+	padding: 1em 0;
+	text-align: center;
+}

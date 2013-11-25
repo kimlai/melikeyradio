@@ -1,0 +1,63 @@
+@import "base";
+
+// TODO margins and paddings are a bit of a mess.
+#global-player {
+	width: 100%;
+	.player {
+		max-width: 700px;
+		height: $header-height *2/3 - 10px; // 10PX is the padding-top.
+		margin: 0 auto;
+		padding-top: 10px;
+	}
+	.controls {
+		float: left;
+		width: 200px;
+		cursor: pointer;
+		.prev, .next, .play, .pause, .toggle-playlist, .buffering-indicator {
+			width: 50px;
+			height: 50px;
+			float: left;
+		}
+		.toggle-playlist { @include replace-text('radioplayer-controls.png', 0px, -235px); }
+		.prev { @include replace-text('radioplayer-controls.png', 0px, -175px); }
+		.next { @include replace-text('radioplayer-controls.png', 0px, -5px); }
+		.play { @include replace-text('radioplayer-controls.png', 0px, -125px); }
+		.pause { @include replace-text('radioplayer-controls.png', 0px, -65px); }
+		.buffering-indicator { @include replace-text('radioplayer-spinner.gif', 14px, 9px); }
+	}
+	.info {
+		max-width: 400px;
+		padding-top: 5px; 
+		padding-bottom: 10px;
+		float: left;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		font-size: 0.95em;
+	}
+	.artist { text-transform: uppercase; }
+	.actions {
+		@include horizontal-list;
+		padding: 5px 0 0 0;
+		float: right;
+		font-size: 0.85em;
+		a {
+			display: block; 
+			width: 14px;
+			height: 14px;
+			cursor: pointer;
+			&.addLikey { @include replace-text('add-likey-compact.png', 0, 0); }
+			&.addLikey:hover { @include replace-text('add-likey-compact-hover.png', 0, 0); }
+			&.fb-share { @include replace-text('fb-track-compact.png', 0, -1px); }
+			&.fb-share:hover { @include replace-text('fb-track-compact-hover.png', 0, -1px); }
+			&.tw-share { @include replace-text('twitter-track-compact.png', 0, -1px); }
+			&.tw-share:hover { @include replace-text('twitter-track-compact-hover.png', 0, -1px); }
+			&.permalink { @include replace-text('add-likey-compact.png', 0, 0); }
+			&.permalink:hover { @include replace-text('add-likey-compact-hover.png', 0, 0); }
+		}
+	}
+	.seekbar {
+		max-width: 500px;
+		float: right;
+	}
+}

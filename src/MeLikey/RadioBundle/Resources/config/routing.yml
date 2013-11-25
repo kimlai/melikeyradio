@@ -9,12 +9,6 @@ me_likey_radio_tracksuggestion:
 me_likey_radio_static:
     resource: "@MeLikeyRadioBundle/Resources/config/routing/static.yml"
 
-me_likey_radio_homepage:
-    pattern:  /
-    defaults: { _controller: MeLikeyRadioBundle:Default:index }
-    options:
-        expose: true
-
 me_likey_radio_playlist_fragment:
     pattern: /playlistfragment/{playlistID}/{position}
     defaults: { _controller: MeLikeyRadioBundle:Default:playlistFragment, playlistID:1, position: 0 }

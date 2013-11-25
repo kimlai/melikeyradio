@@ -1,0 +1,34 @@
+@import "base";
+
+#connect-form {
+	nav {
+		@include dark-background-element;
+		width: 100%;
+		height: 3em;
+		text-transform: uppercase;
+		font-family: 'Raleway';
+		ul {
+			@include horizontal-list;
+			li {
+				line-height: 1.5em;
+				padding-top: 1em;
+				margin-left: 1em;
+			}
+		}
+	}
+	article {
+		max-width: 350px;
+		margin: 3em auto;
+		input {
+			width: 220px;
+		}
+		#remember_me {
+			width: auto;
+			margin-top: 6px;
+		}
+		.button {
+			width: 100px;
+			float: right;
+		}
+	}
+}

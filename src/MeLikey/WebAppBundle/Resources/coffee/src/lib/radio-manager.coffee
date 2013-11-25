@@ -35,20 +35,16 @@ define [
         @position += position - 6 # load 6 tracks before the new track playing, and 6 tracks after it. 
         utils.setCookie @playlistID, @position
         @publishEvent 'Radio:newTrackPlaying', track
-        @fetchTracks()
 
     fetchTracks: ->
       @isSyncing = true
       @playlist.fetch {
         set:
           merge: false
-        data:
-          playlistID: @playlistID
-          position: @position
         success: =>
           @isSyncing = false
           if not @currentTrack?
-            @currentTrack = @playlist.at(6)
+            @currentTrack = @playlist.at(0)
             @currentTrack.play()
       }
 

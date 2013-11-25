@@ -1,0 +1,45 @@
+@import "base";
+
+#global-playlist .playlist {
+	@include opacity(0);
+	height: $header-height * 2/3 + 15px;
+	overflow-y: hidden;
+	overflow-x: scroll;
+	white-space: nowrap;
+	background: darken($background-color, 5%);
+	border-top: 1px solid lighten($background-color, 3%);
+	@include single-box-shadow(darken($background-color, 7%), 0px, 0px, 1px, 1px, inset);
+	.expanded & { @include opacity(1) }
+	.playlist-item {
+		font-size: 12px;
+		cursor: pointer;
+		display: inline-block;
+		margin: 6px 5px;
+		padding: 7px;
+		.artwork {
+			width: 25px;
+			height: 25px;
+			float: left;
+		}
+		.infos {
+			float: left;
+			padding-left: 5px;
+			max-width: 90px;
+			min-width: 75px;
+			div {
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+		&.playing {
+			background: $background-color;
+			@include single-box-shadow(lighten($background-color, 7%), 0px, 0px, 2px, 0px, inset)
+		}
+	}
+	.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+		background: lighten($background-color, 5%);
+	}
+	@include transition-property(opacity);
+	@include transition-duration(0.5s);
+}
+
