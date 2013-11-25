@@ -5,7 +5,7 @@
         <title>Me Likey Radio SPA</title>
         <link href='http://fonts.googleapis.com/css?family=Roboto:300,400' rel='stylesheet' type='text/css' />
         <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-        <link href="{{ asset('bundles/melikeywebapp/stylesheets/jquery.mCustomScrollbar.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bundles/melikeywebapp/js/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') }}" rel="stylesheet" type="text/css" />
         {% stylesheets 'bundles/melikeywebapp/stylesheets/*' filter='cssrewrite' %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
@@ -35,7 +35,7 @@
                     chaplin: 'vendor/chaplin/chaplin',
                     soundcloudSDK: 'http://connect.soundcloud.com/sdk',
                     twig: 'vendor/twig.dev',
-                    scrollbar: 'vendor/jquery.mCustomScrollbar.concat.min',
+                    scrollbar: 'vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min',
                     facebookSDK: '//connect.facebook.net/en_US/all'
                 },
                 shim: {

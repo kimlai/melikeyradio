@@ -22,6 +22,7 @@
     "underscore": "~1.5.2",
     "handlebars": "~1.1.2",
     "requirejs-text": "~2.0.9",
-    "chaplin": "~0.11.3"
+    "chaplin": "~0.11.3",
+    "malihu-custom-scrollbar-plugin": "git://github.com/malihu/malihu-custom-scrollbar-plugin.git"
   }
 }
