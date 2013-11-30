@@ -1,5 +1,5 @@
 {
-    "name": "melikeyradio",
+    "name": "kimlai/melikeyradio",
     "description": "A blog/webradio engine",
     "autoload": {
         "psr-0": {
