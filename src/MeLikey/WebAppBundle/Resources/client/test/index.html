@@ -9,8 +9,8 @@
     <script src="../node_modules/sinon-chai/lib/sinon-chai.js"></script>
     <script src="../node_modules/sinon/lib/sinon.js"></script>
     <script src="../node_modules/sinon/lib/sinon/spy.js"></script>
-    <script src="../../public/js/vendor/requirejs/require.js"></script>
-    <script src="../../public/js/vendor/router.js"></script>
+    <script src="../../public/vendor/requirejs/require.js"></script>
+    <script src="../../public/vendor/router.js"></script>
     <script>
 	  //TODO : move this in a requirejs-module. This code loads the IFrame Player API code asynchronously.
 	  var tag = document.createElement('script');
@@ -28,9 +28,10 @@
       requirejs.config({
         baseUrl: 'js',
         paths: {
-          jquery: 'jquery-1.9.1',
-          underscore: '../../../public/js/vendor/underscore/underscore',
-          backbone: '../../../public/js/vendor/backbone/backbone',
+          jquery: '../../../public/vendor/jquery/jquery',
+          underscore: '../../../public/vendor/underscore/underscore',
+          backbone: '../../../public/vendor/backbone/backbone',
+          chaplin: '../../../public/vendor/chaplin/chaplin',
 	  soundcloudSDK: 'http://connect.soundcloud.com/sdk'
         },
         shim: {
@@ -68,11 +69,11 @@
       window.assert = chai.assert;
       window.onload = function() {
         var specs = [
-			'player-wrapper',
-			'soundcloud-wrapper',
-			'youtube-wrapper',
-			'player',
-	//		'tracks'
+            'player-wrapper',
+            'soundcloud-wrapper',
+            'youtube-wrapper',
+            'player',
+            //'tracks'
         ];
         var loaded = [];
         for (var i = 0, l = specs.length; i < l; i++) {
