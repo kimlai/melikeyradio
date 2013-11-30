@@ -18,6 +18,11 @@ module.exports = (grunt) ->
           { expand: true, ext: '.js', dest: '../public/js/', src: '**/*.coffee', cwd: 'src/' }
         ]
 
+    compass:
+      dist:
+        options:
+          config: 'config.rb'
+
     watch:
       test:
         files: ['**/*.coffee']
@@ -25,3 +30,4 @@ module.exports = (grunt) ->
 
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-contrib-compass'
