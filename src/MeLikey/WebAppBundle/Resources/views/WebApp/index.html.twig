@@ -5,7 +5,7 @@
         <title>Me Likey Radio SPA</title>
         <link href='http://fonts.googleapis.com/css?family=Roboto:300,400' rel='stylesheet' type='text/css' />
         <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-        <link href="{{ asset('bundles/melikeywebapp/js/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bundles/melikeywebapp/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') }}" rel="stylesheet" type="text/css" />
         {% stylesheets 'bundles/melikeywebapp/stylesheets/*' filter='cssrewrite' %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
@@ -20,21 +20,19 @@
             firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
         </script>
 
-        {% javascripts '@MeLikeyWebAppBundle/Resources/coffee/bower_components/requirejs/require.js' %}
-            <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
+        <script src="{{ asset('bundles/melikeywebapp/vendor/requirejs/require.js') }}"></script>
         <script>
             requirejs.config({
                 baseUrl: '{{ asset('bundles/melikeywebapp/js/') }}',
                 paths: {
-                    jquery: 'vendor/jquery/jquery',
-                    underscore: 'vendor/underscore/underscore',
-                    backbone: 'vendor/backbone/backbone',
-                    handlebars: 'vendor/handlebars/handlebars',
-                    text: 'vendor/requirejs-text/text',
-                    chaplin: 'vendor/chaplin/chaplin',
+                    jquery: '../vendor/jquery/jquery',
+                    underscore: '../vendor/underscore/underscore',
+                    backbone: '../vendor/backbone/backbone',
+                    handlebars: '../vendor/handlebars/handlebars',
+                    text: '../vendor/requirejs-text/text',
+                    chaplin: '../vendor/chaplin/chaplin',
                     soundcloudSDK: 'http://connect.soundcloud.com/sdk',
-                    twig: 'vendor/twig.dev',
+                    twig: '../vendor/twig.dev',
                     scrollbar: 'vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min',
                     facebookSDK: '//connect.facebook.net/en_US/all'
                 },

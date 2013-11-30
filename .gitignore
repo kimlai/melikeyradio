@@ -37,8 +37,9 @@ bower_components
 #compiled coffescript, templates and sass
 #-----------------------------------------
 
-/src/MeLikey/WebAppBundle/Resources/coffee/test/js/
+/src/MeLikey/WebAppBundle/Resources/client/test/js/
 /src/MeLikey/WebAppBundle/Resources/public/js/
+/src/MeLikey/WebAppBundle/Resources/public/vendor
 /src/MeLikey/WebAppBundle/Resources/public/stylesheets/
 *.sass-cache/
 
