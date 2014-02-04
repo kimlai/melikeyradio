@@ -23,7 +23,7 @@ then
     apt-get update
 fi
 
-apt-get install -y php5-dev php5-cli php5-mysql mysql-server nodejs vim git rubygems
+apt-get install -y php5-dev php5-cli php5-pgsql postgresql nodejs vim git rubygems
 
 npm install -g grunt-cli bower
 
