@@ -14,8 +14,7 @@ define [
     # “Controller title – Site title” (see Chaplin.Layout#adjustTitle)
     title: 'MeLikeyRadio'
 
-    initialize: (playlistID) ->
-      #super
+    initialize: (options) ->
 
       # Initialize core components.
       # ---------------------------
@@ -38,7 +37,7 @@ define [
       @initComposer()
 
       # Mediator is a global message broker which implements pub / sub pattern.
-      @initMediator(playlistID)
+      @initMediator(options.playlistID)
 
       # Actually start routing.
       @start()
@@ -54,10 +53,10 @@ define [
 
     # Create additional mediator properties
     # -------------------------------------
-    initMediator: ->
+    initMediator: (playlistID) ->
       # Add additional application-specific properties and methods
       # e.g. Chaplin.mediator.prop = null
-      Chaplin.mediator.radioManager = new RadioManager {playlistID: 25}
+      Chaplin.mediator.radioManager = new RadioManager {playlistID: playlistID}
       Chaplin.mediator.sessionManager = new SessionManager()
 
       # Seal the mediator.

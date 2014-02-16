@@ -75,16 +75,16 @@
                         }
                     }
                 }
-                // For easier development, disable browser caching
-                // Of course, this should be removed in a production environment
-                , urlArgs: 'bust=' +  (new Date()).getTime()
-                });
+            // For easier development, disable browser caching
+            // Of course, this should be removed in a production environment
+            , urlArgs: 'bust=' +  (new Date()).getTime()
+            });
 
-                // Bootstrap the application
-                require(['application'], function(MeLikeyRadio) {
-                    window.app = new MeLikeyRadio({ root: '{{ path("me_likey_web_app_homepage") }}'});
-                });
-                </script>
-        </head>
-        <body></body>
+            // Bootstrap the application
+            require(['application'], function(MeLikeyRadio) {
+                window.app = new MeLikeyRadio({ root: '{{ path("me_likey_web_app_homepage") }}', playlistID: 5 });
+            });
+        </script>
+    </head>
+    <body></body>
 </html>
