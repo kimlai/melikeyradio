@@ -6,6 +6,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations\Route;
 use FOS\RestBundle\Controller\Annotations\View;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class TrackController extends FOSRestController
 {
@@ -17,12 +18,21 @@ class TrackController extends FOSRestController
      */
     public function getTracksAction()
     {
+        $offset = $this->getRequest()->query->get('offset') ?: 0;
+        $limit = $this->getRequest()->query->get('limit') ?: 30;
         $tags = $this->getRequest()->query->get('tags');
         $tags = $tags ? explode(",", $tags, 20) : NULL;
-        $tracks = $this
+        $paginator = $this
             ->getDoctrine()
             ->getRepository('MeLikeyRadioBundle:Track')
-            ->findByTags($tags);
+            ->findByTags($tags, $offset, $limit);
+
+        //TODO hack because the JMSSerialzer doesn't like Doctrine's Paginator
+        //see https://github.com/schmittjoh/JMSSerializerBundle/issues/286
+        $tracks = new ArrayCollection();
+        foreach ($paginator as $track) {
+            $tracks[] = $track;
+        }
 
         return $tracks;
     }
