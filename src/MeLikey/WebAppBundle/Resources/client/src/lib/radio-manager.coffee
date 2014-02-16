@@ -6,9 +6,9 @@ define [
   'lib/utils'
 ], (Chaplin, Track, Tracks, Playlist, utils) ->
   'use strict'
-  
+
   #
-  # This class is responsible for handling the Radio Tracks. 
+  # This class is responsible for handling the Radio Tracks.
   # It fetches Radio playlist fragments when needed.
   # It plays and stops Radio Tracks when needed (either a Track has stopped playing, or the Next/Prev button was clicked).
   #
@@ -32,7 +32,7 @@ define [
       position = @playlist.indexOf track
       if position >= 0 # this is a radio track playing
         @currentTrack = track
-        @position += position - 6 # load 6 tracks before the new track playing, and 6 tracks after it. 
+        @position += position - 6 # load 6 tracks before the new track playing, and 6 tracks after it.
         utils.setCookie @playlistID, @position
         @publishEvent 'Radio:newTrackPlaying', track
 
