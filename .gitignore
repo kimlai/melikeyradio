@@ -18,7 +18,6 @@
 /vendor/
 /bin/
 /composer.phar
-composer.lock
 /app/config/parameters.ini
 /app/config/parameters.yml
 /web/js/
