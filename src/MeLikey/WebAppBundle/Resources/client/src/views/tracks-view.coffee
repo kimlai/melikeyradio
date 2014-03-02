@@ -43,8 +43,8 @@ define [
         @loadTracks()
 
     # TODO Find a something so we can bootstrap the collection with playing tracks (held by the GlobalPLayerView for now).
-    # TODO Should prevent loading tracks when there's nothing left to load !!
     loadTracks: ->
+      return if @reachedTheEnd
       @loading = true
       data = {offset: @collection.length}
       if @activeTag?
@@ -53,9 +53,9 @@ define [
         data: data
         remove: false
         merge: false
-        success: =>
+        success: (tracks) =>
           @loading = false
-          @renderAllItems()
+          @reachedTheEnd = tracks.length == data.offset
       }
 
     filterByTag: (tag) ->
