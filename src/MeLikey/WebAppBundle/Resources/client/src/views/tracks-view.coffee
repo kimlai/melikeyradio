@@ -20,11 +20,8 @@ define [
       #used for endless scroll
       @loading = false
       @offset = 9999999 #so @loadTracks isn't called at at startup. Feels hacky though.
-      @on 'visibilityChange', ->
-        lastTrack = @$el.find('.track:last')
-        if lastTrack.length > 0
-          @offset = lastTrack.offset().top
-        else @offset = 9999999
+      # if we dont' debounce, the visibilitChanged is triggered o many times it freezes everything.
+      @on 'visibilityChange', _.debounce(@updateScrollOffset, 1000)
       # debouncing the scroll event prevents useless comptuations.
       $(window).scroll _.debounce(@scroll, 300)
       if @tags?
@@ -54,7 +51,6 @@ define [
         remove: false
         merge: false
         success: (tracks) =>
-          @loading = false
           @reachedTheEnd = tracks.length == data.offset
       }
 
@@ -71,3 +67,10 @@ define [
         @collection.reset filtered
         @activeTag = tag
         @loadTracks()
+
+    updateScrollOffset: ->
+      lastTrack = @$el.find('.track:last')
+      if lastTrack.length > 0
+        @offset = lastTrack.offset().top
+      else @offset = 9999999
+      @loading = false

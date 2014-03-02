@@ -19,14 +19,12 @@ define [
     playerWrapper: null
 
     initialize: (attributes, options) ->
-      console.debug "Player.initialize"
       super
       options or= {}
       _.extend this, _.pick(options, 'autoplay', 'soundcloud', 'youtube', 'vimeo')
       @initializePlayerWrapper()
 
     initializePlayerWrapper: ->
-      console.debug "Player.initializePlayerWrapper"
       params =
         autoplay: @autoplay
         onError: @onError
@@ -44,7 +42,6 @@ define [
       else throw new Error "Unknown Track type, no compatible player found..."
 
     onReady: =>
-      console.debug "Player.onReady"
       @set 'ready', true
       if @autoplay then @play()
 
