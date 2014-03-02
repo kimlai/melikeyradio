@@ -11,7 +11,7 @@ define [
     className: 'track compact'
     template: template
     template = null
-    
+
     initialize: ->
       @delegate 'click', '.toggle-infos', @toggleInfo
 
