@@ -29,11 +29,7 @@ define [
     render: ->
       super
       if @model?
-        if @model.player? and @model.player.get 'ready'
-          @createSubviews(@model.player)
-        else
-          @listenTo @model, 'Track:playerReady', (player) ->
-            @createSubviews(player)
+        @createSubviews(@model.player)
 
     getTemplateData: ->
       return if not @model?
