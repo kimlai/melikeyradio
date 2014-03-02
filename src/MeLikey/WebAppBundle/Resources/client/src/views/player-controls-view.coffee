@@ -44,7 +44,6 @@ define [
         @$el.removeClass 'buffering'
 
     play: ->
-      debugger
       @model.play()
 
     pause: ->

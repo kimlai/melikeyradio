@@ -6,7 +6,7 @@ define [
 
   class Track extends Model
 
-    # Static property and methods. 
+    # Static property and methods.
     # Tracks in the vault are cached, and can't be disposed.
     # The vault is kinda like a Store, but only for specific Tracks (those either currently playing, or in the radio playlist).
     @vault: {}
@@ -17,7 +17,7 @@ define [
     @flushVault: ->
       Track.vault = {}
 
-    autoplay: false
+    autoplay: true
     player: null
     urlRoot: Routing.generate('melikey_api_get_tracks')
 
@@ -36,7 +36,7 @@ define [
       _.extend this, options
       @initializePlayer()
       @once 'change:soundcloud change:youtube change:vimeo', @initializePlayer
-    
+
     dispose: ->
       return if @disposed
       unless Track.vault[@id]?
@@ -55,22 +55,18 @@ define [
 
     play: ->
       console.debug "Track.play"
-      if @player.get 'ready'
-        @player.play()
-      else
-        @listenToOnce @player, 'change:ready', @play
+      @player.play()
 
     onPlayerError: ->
       @publishEvent 'Track:error', this
 
     onPlayerPlayStateChange: ->
       if @player.get 'playing'
-        console.debug "coucou"
         @publishEvent 'Track:play', this
-        
+
     onPlayerFinish: ->
       @publishEvent 'Track:end', this
-        
+
     onPlayerReadyStateChange : ->
       if @player.get 'ready'
         @trigger 'Track:playerReady', @player
