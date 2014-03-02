@@ -7,7 +7,7 @@ define [
   'use strict'
 
   class Player extends Model
-  
+
     defaults:
       duration: 0
       loaded: 0
@@ -42,16 +42,19 @@ define [
       else if @vimeo?
         @playerWrapper = new VimeoWrapper _.extend(params, {vimeoID: @vimeo})
       else throw new Error "Unknown Track type, no compatible player found..."
-      @playerWrapper.initializeEngine()
 
     onReady: =>
+      console.debug "Player.onReady"
       @set 'ready', true
       if @autoplay then @play()
 
     play: ->
-      return if @disposed or (@get 'playing') or !@get 'ready'
-      @playerWrapper.play()
-      @set 'playing', true
+      return if @disposed or (@get 'playing')
+      if !@get 'ready'
+        @playerWrapper.initializeEngine()
+      else
+        @playerWrapper.play()
+        @set 'playing', true
 
     pause: ->
       return if @disposed or !(@get 'playing') or !@get 'ready'

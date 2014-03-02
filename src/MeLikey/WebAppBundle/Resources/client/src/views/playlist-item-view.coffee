@@ -15,7 +15,7 @@ define [
     initialize: ->
       @togglePlaying() if @model?
       @delegate 'click', ->
-        @model.player.play() if @model.player? and @model.player.get 'ready'
+        @model.play()
       @listenTo @model.player, 'change:playing', @togglePlaying
 
     togglePlaying: ->
