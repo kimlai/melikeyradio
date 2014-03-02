@@ -3,6 +3,7 @@
 namespace MeLikey\ApiBundle\Controller;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations\Route;
 use FOS\RestBundle\Controller\Annotations\View;
@@ -16,11 +17,11 @@ class TrackController extends FOSRestController
      * @Route
      * @View
      */
-    public function getTracksAction()
+    public function getTracksAction(Request $request)
     {
-        $offset = $this->getRequest()->query->get('offset') ?: 0;
-        $limit = $this->getRequest()->query->get('limit') ?: 30;
-        $tags = $this->getRequest()->query->get('tags');
+        $offset = $request->query->get('offset') ?: 0;
+        $limit = $request->query->get('limit') ?: 30;
+        $tags = $request->query->get('tags');
         $tags = $tags ? explode(",", $tags, 20) : NULL;
         $paginator = $this
             ->getDoctrine()
