@@ -25,10 +25,10 @@ define [
       super
 
     next: (track) ->
-      return @at(@indexOf(track) + 1)
+      return @at (@indexOf(track) + 1) % @length
 
     prev: (track) ->
-      return @at(@indexOf(track) - 1)
+      return @at ((@indexOf(track) - 1) % @length + @length) % @length # stupid javascript modulo operator returning negative values.
 
     # TODO is this messy ?
     filterByTag: (tag) ->
