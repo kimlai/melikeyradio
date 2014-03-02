@@ -20,7 +20,7 @@ define [
       console.debug "SoundcloudWrapper.initializeEngine"
       callback or= ->
       SC.get 'https://api.soundcloud.com/resolve', url: @soundcloudUrl, (response, error) =>
-        if not error?
+        if not error? and response.streamable
           console.debug "soundcloud api success"
           console.debug response
           params =
@@ -29,8 +29,6 @@ define [
             whileplaying: @whileplaying
             whileloading: @whileloading
           SC.stream response.stream_url, params, (sound) =>
-            # Apparently there is no way of reliably determining if a sound loaded succesfully...
-            # We always get a sound Object (even if it'll 404 on play), and onLoad() returns false if we read from the cache.
             @engine = sound
             @onReady()
             callback null, this
