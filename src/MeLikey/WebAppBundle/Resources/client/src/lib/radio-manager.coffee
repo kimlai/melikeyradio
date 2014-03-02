@@ -26,7 +26,6 @@ define [
         Track.removeFromVault track
         track.dispose()
       @subscribeEvent 'Track:play', @onTrackPlay
-      @subscribeEvent 'Track:error', @next
       @fetchTracks()
 
     onTrackPlay: (track) ->
