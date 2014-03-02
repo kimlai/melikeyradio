@@ -15,6 +15,7 @@ define [
         @$el.mCustomScrollbar {horizontalScroll: true, mouseWheel: true, mouseWheelPixels: 300}
       @subscribeEvent 'Radio:newTrackPlaying', @scrollToTrack
       @listenTo @collection, 'add remove', _.debounce @render, 1000
+      @listenTo @collection, 'add remove', _.debounce @updateScrollbar, 1000
 
     updateScrollbar: ->
       @$el.mCustomScrollbar {horizontalScroll: true, mouseWheel: true, mouseWheelPixels: 300}
