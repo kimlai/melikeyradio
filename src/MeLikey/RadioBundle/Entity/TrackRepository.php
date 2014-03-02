@@ -14,7 +14,7 @@ class TrackRepository extends EntityRepository
     {
         $qb = $this->createQueryBuilder('t');
 
-        $qb->join('t.tags', 'tags')
+        $qb->leftJoin('t.tags', 'tags')
             ->addSelect('tags')
             ->orderBy('t.created', 'DESC')
             ->setFirstResult($offset)
