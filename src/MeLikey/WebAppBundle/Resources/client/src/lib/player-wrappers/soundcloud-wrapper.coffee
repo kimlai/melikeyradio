@@ -20,7 +20,7 @@ define [
       console.debug "SoundcloudWrapper.initializeEngine"
       callback or= ->
       SC.get 'https://api.soundcloud.com/resolve', url: @soundcloudUrl, (response, error) =>
-        if not error? and response.streamable
+        if not error? and response.stream_url
           console.debug "soundcloud api success"
           console.debug response
           params =
