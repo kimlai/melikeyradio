@@ -19,7 +19,7 @@ class PlaylistRepository extends EntityRepository
             ->addSelect('pi')
             ->join('pi.track', 't')
             ->addSelect('t')
-            ->orderBy('pi.position', 'DESC')
+            ->orderBy('pi.position', 'ASC')
             ->setParameters(array(
                 'id' => $id,
             ));
