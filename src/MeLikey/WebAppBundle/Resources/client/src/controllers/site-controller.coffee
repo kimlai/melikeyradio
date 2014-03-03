@@ -21,6 +21,10 @@ define [
       @subscribeEvent 'GlobalPlayer:prev', @prev
       @subscribeEvent 'Track:end', @next
       @subscribeEvent 'Track:error', @next
+      @subscribeEvent 'Track:play', @onTrackPlay
+
+    onTrackPlay: (track) ->
+      @publishEvent 'Radio:newTrackPlaying', track
 
     next: (track) ->
       Chaplin.mediator.radioManager.next track
