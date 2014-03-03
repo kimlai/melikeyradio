@@ -39,6 +39,9 @@ define [
           $('#main-loader').removeClass('loading')
       @view = new TrackView options
 
+    # Don't send a 'Radio:newTrackPlaying' event when track starts playing
+    onTrackPlay: ->
+
     # Override default behaviour on click on the Global player Next button.
     next: (track) ->
       return super if not @tracks
