@@ -18,7 +18,7 @@ class RegisterTwigJsModuleCompilerPass implements CompilerPassInterface
 
         $definition->addMethodCall(
             'addTypeCompiler',
-            array(new Reference('me_likey_web_app.amd_module_compiler'))
+            array(new Reference('twig_js.amd_module_compiler'))
         );
     }
 }

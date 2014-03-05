@@ -1152,17 +1152,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/twig.js.git",
-                "reference": "683d93a6dfd337086feff0ed4d29bbc076ea1463"
+                "reference": "8730d0c833e07cdb3f329afb61cc3ab82ad5b623"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/twig.js/zipball/683d93a6dfd337086feff0ed4d29bbc076ea1463",
-                "reference": "683d93a6dfd337086feff0ed4d29bbc076ea1463",
+                "url": "https://api.github.com/repos/schmittjoh/twig.js/zipball/8730d0c833e07cdb3f329afb61cc3ab82ad5b623",
+                "reference": "8730d0c833e07cdb3f329afb61cc3ab82ad5b623",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "twig/twig": ">=1.8,<2.0-dev"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*@dev",
+                "squizlabs/php_codesniffer": "1.*"
             },
             "type": "library",
             "extra": {
@@ -1191,7 +1195,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-11-01 10:40:09"
+            "time": "2014-02-17 16:20:24"
         },
         {
             "name": "jms/twig-js-bundle",
