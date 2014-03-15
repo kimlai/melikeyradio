@@ -4,3 +4,4 @@ parameters:
 services:
     twig_js.amd_module_compiler:
         class: "%twig_js.amd_module_compiler.class%"
+        arguments: [false]
