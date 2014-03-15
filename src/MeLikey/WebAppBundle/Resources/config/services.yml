@@ -1,6 +1,7 @@
 parameters:
-    me_likey_web_app.amd_module_compiler.class: "MeLikey\WebAppBundle\TwigJs\Compiler\AmdModuleCompiler"
+    twig_js.amd_module_compiler.class: "TwigJs\Compiler\ModuleCompiler\AmdCompiler"
 
 services:
-    me_likey_web_app.amd_module_compiler:
-        class: "%me_likey_web_app.amd_module_compiler.class%"
+    twig_js.amd_module_compiler:
+        class: "%twig_js.amd_module_compiler.class%"
+        arguments: [false]
