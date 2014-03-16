@@ -22,7 +22,7 @@ class TrackRepository extends EntityRepository
 
         if ($tags) {
             $qb
-                ->join('t.tags', 'tag', 'WITH', $qb->expr()->in('tag.name', ':tags'))
+                ->join('t.tags', 'tag', 'WITH', $qb->expr()->in('tag.id', ':tags'))
                 ->setParameter('tags', $tags);
         }
 
