@@ -12,6 +12,7 @@ define [
     tagName: 'section'
     className: 'tracks-list'
     initialModels: null
+    reachedTheEnd: false
 
     initialize: (options) ->
       options or= {}
@@ -55,6 +56,7 @@ define [
       }
 
     filterByTag: (tag) ->
+      @reachedTheEnd = false
       if not @initialModels?
         @initialModels = @collection.models
         _.each @initialModels, (track) ->
