@@ -83,7 +83,7 @@
 
             // Bootstrap the application
             require(['application'], function(MeLikeyRadio) {
-                window.app = new MeLikeyRadio({ root: '{{ path("me_likey_web_app_homepage") }}', playlistID: 5 });
+                window.app = new MeLikeyRadio({ root: '{{ path("me_likey_web_app_homepage") }}', playlistID: {{ playlistID }} });
             });
         </script>
     </head>

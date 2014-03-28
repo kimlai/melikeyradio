@@ -8,7 +8,12 @@ class WebAppController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('MeLikeyWebAppBundle:WebApp:index.html.twig', array('playlistID' => 21));
+        return $this->render(
+            'MeLikeyWebAppBundle:WebApp:index.html.twig',
+            array(
+                'playlistID' => $this->container->getParameter('playlist_id'),
+            )
+        );
     }
 
     public function blogAction($page)
