@@ -12,11 +12,11 @@
     <script src="../../public/vendor/requirejs/require.js"></script>
     <script src="../../public/vendor/router.js"></script>
     <script>
-	  //TODO : move this in a requirejs-module. This code loads the IFrame Player API code asynchronously.
-	  var tag = document.createElement('script');
-	  tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-	  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      //TODO : move this in a requirejs-module. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+         var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
       // Fix timers stubbing in IE8-9.
       var oldTimers = {setInterval: setInterval, clearInterval: clearInterval};
       eval('function setInterval() {}; function clearInterval() {}');
@@ -32,7 +32,8 @@
           underscore: '../../../public/vendor/underscore/underscore',
           backbone: '../../../public/vendor/backbone/backbone',
           chaplin: '../../../public/vendor/chaplin/chaplin',
-	  soundcloudSDK: 'http://connect.soundcloud.com/sdk'
+          soundcloudSDK: 'http://connect.soundcloud.com/sdk',
+          vimeo: 'http://a.vimeocdn.com/js_opt/froogaloop2.min'
         },
         shim: {
           backbone: {
@@ -42,12 +43,12 @@
           underscore: {
             exports: '_'
           },
-	  soundcloudSDK: {
-	      exports: 'SC',
-	      init: function() {
-	          SC.initialize({client_id: 'ad3f38b80f23db05a89a7ec3ef2ed696'});
-	      }
-	  }
+          soundcloudSDK: {
+            exports: 'SC',
+            init: function() {
+              SC.initialize({client_id: 'ad3f38b80f23db05a89a7ec3ef2ed696'});
+            }
+          }
         },
         // For easier development, disable browser caching
         urlArgs: 'bust=' + (new Date()).getTime()
@@ -65,13 +66,14 @@
         sendMessage('mocha.coverage', window.__coverage__);
       });
       //window.expect = SinonExpect.enhance(expect, sinon, 'was');
-	  window.sinon = sinon;
+      window.sinon = sinon;
       window.assert = chai.assert;
       window.onload = function() {
         var specs = [
             'player-wrapper',
             'soundcloud-wrapper',
             'youtube-wrapper',
+            'vimeo-wrapper',
             'player',
             //'tracks'
         ];
