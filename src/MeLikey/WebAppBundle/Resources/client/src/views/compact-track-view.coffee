@@ -13,6 +13,7 @@ define [
     template = null
 
     initialize: ->
+      super
       @delegate 'click', '.toggle-infos', @toggleInfo
 
     toggleInfo: ->

@@ -4,8 +4,18 @@
 <a class="toggle-infos">Infos</a>
 <ul class="actions">
     <li><a class="addLikey">Likey</a></li>
-    <li><a class="fb-share">Facebook</a></li>
-    <li><a class="tw-share">Twitter</a></li>
+    <li>
+        <a target="_blank"
+           href="https://www.facebook.com/sharer/sharer.php?u={{ url('me_likey_web_app_track_show', {id: track.id}) }}"
+           class="fb-share">Share
+        </a>
+    </li>
+    <li>
+        <a target="_blank"
+           href="https://twitter.com/intent/tweet?url={{ url('me_likey_web_app_track_show', {id: track.id}) }}&via=melikeyradio"
+           class="tw-share">Tweet
+        </a>
+    </li>
 </ul>
 <section class="infos">
     <a href="{{ path('me_likey_web_app_track_show', {'id': track.id}) }}">

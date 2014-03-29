@@ -22,8 +22,8 @@ define [
       options or= {}
       _(this).extend _.pick(options, 'seekbar', 'controls')
       @listenTo @model, 'change', @render if @model?
-      @delegate 'click', '.fb-share', @fbShare
-      @delegate 'click', '.tw-share', @twitterShare
+      @delegate 'click', '.fb-share', @share
+      @delegate 'click', '.tw-share', @share
       @delegate 'click', '.addLikey', @toggleLikey
 
     render: ->
@@ -45,20 +45,10 @@ define [
         playerView = new SeekbarView(options)
         @subview 'player', playerView
 
-    fbShare: ->
-      obj =
-        method: 'feed',
-        link: Routing.generate 'melikey_api_get_track', {id: @model.id}, true
-      FB.ui obj
-
-    twitterShare: ->
+    share: (e) ->
       top = screen.height/2 - 225
       left = screen.width/2 - 275
-      params =
-        url: Routing.generate 'me_likey_api_get_track', {id: @model.id}, true
-        via: 'melikeyradio'
-        text: @model.get('artist') + ' - ' + @model.get('title')
-      url = 'https://twitter.com/share?' + $.param params
+      url = e.target.href
       window.open url, '_blank', 'width=550,height=450,top='+top+',left='+left
 
     toggleLikey: ->
