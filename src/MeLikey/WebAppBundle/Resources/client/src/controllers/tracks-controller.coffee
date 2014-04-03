@@ -21,7 +21,7 @@ define [
         success: =>
           @view.renderAllItems()
           $('#main-loader').removeClass('loading')
-          @compose 'playlist', PlaylistView, { region: 'playlist', collection: @tracks }
+          @reuse 'playlist', PlaylistView, { region: 'playlist', collection: @tracks }
       }
       jokerTag = new Tag {id: '*', name: 'Latest'}
       @tags = new Tags [jokerTag]

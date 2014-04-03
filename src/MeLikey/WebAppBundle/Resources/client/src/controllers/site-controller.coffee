@@ -12,9 +12,9 @@ define [
 
     beforeAction: ->
       super
-      @compose 'header', HeaderView, { region: 'header' }
-      @compose 'globalPlayer', GlobalPlayerView, { region: 'globalPlayer', model: Chaplin.mediator.radioManager.currentTrack }
-      @compose 'playlist', PlaylistView, { region: 'playlist', collection: Chaplin.mediator.radioManager.playlist }
+      @reuse 'header', HeaderView, { region: 'header' }
+      @reuse 'globalPlayer', GlobalPlayerView, { region: 'globalPlayer', model: Chaplin.mediator.radioManager.currentTrack }
+      @reuse 'playlist', PlaylistView, { region: 'playlist', collection: Chaplin.mediator.radioManager.playlist }
 
     initialize: ->
       @subscribeEvent 'GlobalPlayer:next', @next
