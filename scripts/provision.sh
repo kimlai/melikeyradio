@@ -28,6 +28,7 @@ apt-get install -y php5-dev php5-cli php5-pgsql postgresql nodejs vim git rubyge
 npm install -g grunt-cli bower
 
 gem install compass
+gem install animation --pre
 
 # Configuring virtual machine
 
